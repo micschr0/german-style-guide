@@ -13,23 +13,14 @@ Die Regeln basieren auf Engel (1911), Schneider, tekom-Leitlinie und dem Hamburg
 
 ## Installation
 
-1. Repository klonen:
+In Claude Code:
 
-   ```bash
-   git clone https://github.com/micschr0/german-style-guide.git
-   ```
+```
+/plugin marketplace add micschr0/german-style-guide
+/plugin install german-style-guide@german-style-guide
+```
 
-2. Skill-Dateien in den Claude Code Plugins-Pfad kopieren:
-
-   ```bash
-   mkdir -p ~/.claude/plugins/german-style-guide/skills/german-style-guide
-   cp german-style-guide/SKILL.md ~/.claude/plugins/german-style-guide/skills/german-style-guide/
-   cp german-style-guide/referenz.md ~/.claude/plugins/german-style-guide/skills/german-style-guide/
-   ```
-
-3. Claude Code neu starten.
-
-Claude aktiviert den Skill automatisch beim Schreiben und Lektorieren auf Deutsch.
+Claude Code lädt den Skill automatisch — kein Neustart nötig.
 
 ## Verwendung
 
