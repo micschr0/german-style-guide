@@ -1,10 +1,10 @@
 # german-style-guide
 
-Ein Claude Code Skill mit destillierten deutschen Stilregeln für technische Texte — für DevOps, Entwickler und Architekten.
+76 deutsche Stilregeln für technische Texte — automatisch angewendet, wenn Claude auf Deutsch schreibt.
 
 ## Was der Skill tut
 
-Der Skill wendet 76 Stilregeln automatisch an, wenn Claude auf Deutsch schreibt oder lektoriert:
+Der Skill wendet 76 Stilregeln automatisch an, wenn Claude auf Deutsch schreibt oder einen Text lektoriert:
 
 - **Schreibmodus:** Regeln still anwenden, kein Kommentar
 - **Lektüremodus:** Explizite Anmerkungen mit Regelreferenz (z. B. `[R12] Nominalstil → Verb`)
@@ -63,7 +63,7 @@ Kategorien:
 | 2 | README schreiben |
 | 3 | Fehlermeldungen verbessern |
 | 4 | Schreibmodus (still) |
-| 5 | Lektüremodus bei ambiger Anfrage |
+| 5 | Lektüremodus bei mehrdeutiger Anfrage |
 | 6 | Langer Text mit Subagent |
 
 ## Lizenz
