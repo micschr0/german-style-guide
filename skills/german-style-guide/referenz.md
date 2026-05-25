@@ -98,9 +98,9 @@ Wann nicht: Enge kausale Zusammenhänge mit Komma OK.
 ### R3: Füllwörter streichen
 Wort streichen, Bedeutung prüfen — ändert sich nichts → streichen.
 Wann nicht: Direkte Rede, Zitate.
-Füllwörter: eigentlich→, grundsätzlich→, natürlich→, selbstverständlich→,
-gewissermaßen→, sozusagen→, quasi→, irgendwie→konkretisieren, durchaus→,
-letztendlich→, bekanntlich→, im Grunde genommen→.
+Füllwörter (streichen): eigentlich, grundsätzlich, natürlich, selbstverständlich,
+gewissermaßen, sozusagen, quasi, durchaus, letztendlich, bekanntlich,
+im Grunde genommen. Ausnahme: irgendwie → konkretisieren.
 
 ### R4: Pleonasmen vermeiden
 Zwei Wörter mit gleicher Bedeutung — eines streichen.
@@ -500,7 +500,7 @@ Perfekt für: Status-Updates, Akzeptanzkriterien, abgeschlossene Schritte.
 READMEs, Wikis oder Spezifikationen.
 ❌ "Ich habe den Bug gefixt." ✓ "Der Bug ist behoben."
 ❌ "Wir müssen das noch testen." ✓ "Das muss noch getestet werden."
-❌ "Ich fixe das indem ich die Methode umbennene." ✓ "Fix: Methode wird auf X umbenannt."
+❌ "Ich fixe das indem ich die Methode umbenenne." ✓ "Fix: Methode wird auf X umbenannt."
 "man" nur für generische Aussagen ohne identifizierbares Subjekt OK:
 ✓ "Man kann X auch über Y erreichen." — aber: ❌ "Man muss das Baseline neu aufbauen."
 ✓ "Das Baseline muss neu aufgebaut werden."
