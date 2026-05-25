@@ -1,0 +1,143 @@
+{
+  "skill_name": "german-style-guide",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "incident-report-lektorat",
+      "prompt": "Bitte lektoriere diesen Incident Report und verbessere den Stil:\n\n---\nAm gestrigen Abend kam es zu einer Beeinträchtigung der Verfügbarkeit des Produktivsystems, die durch einen fehlerhaften Konfigurationsparameter verursacht wurde, welcher im Rahmen des regelmäßig stattfindenden Deployment-Prozesses zur Anwendung gebracht wurde. Die Durchführung der Behebungsmaßnahmen erfolgte durch das On-Call-Team und war nach einer Zeitdauer von ungefähr zwei Stunden abgeschlossen. Grundsätzlich ist davon auszugehen, dass durch die Implementierung eines automatisierten Validierungsprozesses eine Vermeidung ähnlicher Vorkommnisse in der Zukunft möglich sein wird.\n---",
+      "expected_output": "Kürzerer, aktiverer Text. Nominalstil aufgelöst. Passiv ersetzt. Kernaussage zuerst. Konkrete Zahlen. Regelreferenzen im Lektüremodus.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Kein Satz länger als 25 Wörter im Ergebnis"
+        },
+        {
+          "text": "Mindestens eine Regelreferenz [R...] vorhanden"
+        },
+        {
+          "text": "Keine Nominal-Ketten (-ung/-keit) im überarbeiteten Text"
+        },
+        {
+          "text": "Vergleichstabelle oder Vorher/Nachher-Gegenüberstellung vorhanden"
+        },
+        {
+          "text": "Baseline enthält keine Regelreferenzen"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "readme-schreiben",
+      "prompt": "Schreibe ein kurzes README für ein CLI-Tool namens 'rathole-manager', das rathole-Tunnel verwaltet. Starte, stoppe und liste Tunnel. Geschrieben in Rust. Nur auf Deutsch.",
+      "expected_output": "README beginnt mit einem Satz Nutzen. Schnellstart vorhanden. Imperativ in Befehlen. Kein Nominalstil. Klare Struktur.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "README beginnt mit Nutzen-Satz (nicht 'Installation' oder 'Features')"
+        },
+        {
+          "text": "Schnellstart-Abschnitt mit Codebeispielen vorhanden"
+        },
+        {
+          "text": "Befehle im Imperativ formuliert"
+        },
+        {
+          "text": "with_skill hat mehr Abschnitte als Baseline"
+        },
+        {
+          "text": "Kein Nominalstil in Beschreibungen"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "fehlermeldung-verbessern",
+      "prompt": "Verbessere diese Fehlermeldungen nach guten Stilregeln:\n\n1. Error: Something went wrong.\n2. Fehler: Die Operation konnte nicht durchgeführt werden.\n3. Warning: Possible issue detected.\n4. Error: Verbindungsfehler aufgetreten.",
+      "expected_output": "Ursache genannt. Konkrete Werte. Handlung vorgeschlagen. Aktiv formuliert.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Alle 4 Meldungen enthalten konkrete Ursache"
+        },
+        {
+          "text": "Alle 4 Meldungen enthalten Handlungsvorschlag"
+        },
+        {
+          "text": "Regelreferenzen R56–R60 genannt"
+        },
+        {
+          "text": "Konkrete Werte (Port, Pfad, Timeout) in verbesserter Meldung"
+        },
+        {
+          "text": "Baseline verbessert Meldungen nicht strukturiert"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "eval_name": "schreibmodus-still",
+      "prompt": "Schreib mir eine kurze E-Mail an mein Team: Wir haben heute Nacht das Deployment verschoben wegen eines Konfigurationsproblems. Neuer Termin ist Donnerstag 22 Uhr.",
+      "expected_output": "Direkte E-Mail ohne Lektorat-Kommentare. Kein [R...]. Aktiv, kurze Sätze, Kernaussage zuerst — aber still angewendet.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Keine Regelreferenzen [R...] im Output (Schreibmodus = still)"
+        },
+        {
+          "text": "Kein Passiv im Output"
+        },
+        {
+          "text": "Kernaussage (Deployment verschoben) im ersten Satz"
+        },
+        {
+          "text": "Konkreter Termin (Donnerstag 22 Uhr) genannt"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "eval_name": "ambigue-anfrage-lektueremodus",
+      "prompt": "Kannst du das besser formulieren? Die Dokumentation der Durchführung von Deployments erfolgt im Wiki.",
+      "expected_output": "Lektüremodus greift. Regelreferenzen vorhanden. Mehrere Varianten angeboten.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Lektüremodus greift — Regelreferenzen [R...] vorhanden"
+        },
+        {
+          "text": "Nominalstil-Problem identifiziert und erklärt"
+        },
+        {
+          "text": "Mehrere Varianten angeboten (kontextabhängig)"
+        },
+        {
+          "text": "Baseline bietet nur eine Variante ohne Begründung"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "eval_name": "langer-text-subagent-dispatch",
+      "prompt": "Lektoriere dieses Dokument: [Monitoring-Stack-Architektur, 529 Wörter, schwerer Nominalstil]",
+      "expected_output": "Subagent-Hinweis ausgelöst. Top-Problem priorisiert. Muster-Tabelle. Gesamtbilanz.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Subagent-Hinweis bei >500 Wörtern ausgelöst"
+        },
+        {
+          "text": "Top-Problem (Nominalstil) priorisiert und quantifiziert"
+        },
+        {
+          "text": "Muster-Tabelle statt Einzelreparaturen"
+        },
+        {
+          "text": "Gesamtbilanz mit Vorher/Nachher-Metriken"
+        },
+        {
+          "text": "Baseline kein Subagent-Hinweis, kein systematisches Lektorat"
+        }
+      ]
+    }
+  ]
+}
