@@ -1,0 +1,13 @@
+{
+  "name": "german-style-guide",
+  "owner": { "name": "micschr0" },
+  "plugins": [
+    {
+      "name": "german-style-guide",
+      "source": "./",
+      "description": "Deutsche Stilregeln für technische Texte — DevOps, Entwickler, Architekten",
+      "version": "1.0.0",
+      "author": { "name": "micschr0" }
+    }
+  ]
+}
