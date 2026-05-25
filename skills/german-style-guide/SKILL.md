@@ -73,24 +73,22 @@ Struktur, Reihenfolge, Übergänge.
 - R23: Übergänge explizit machen
 - R24: Überschriften konkret und aktiv formulieren
 - R25: Parallelismus in Listen und Aufzählungen
-- R26: Rhythmus durch Satzlängen-Variation
-- R27: Interpunktion als Stilmittel
 
 ### P6 · Konsistenz
 Ein Begriff, eine Bedeutung — im gesamten Dokument.
-- R28: Dasselbe Konzept immer mit demselben Begriff
-- R29: Terminologie beim ersten Auftreten einführen
-- R30: Gendersprache: neutrale Formulierungen, keine Sonderzeichen
-- R31: Einheitliche Zeitform im Dokument
-- R32: Einheitliche Anredeform (du/Sie/man)
+- R26: Dasselbe Konzept immer mit demselben Begriff
+- R27: Terminologie beim ersten Auftreten einführen
+- R28: Gendersprache: neutrale Formulierungen, keine Sonderzeichen
+- R29: Einheitliche Zeitform im Dokument
+- R30: Einheitliche Anredeform (du/Sie/man)
 
 ---
 
 ## Vollständige Referenz laden
 
-**`referenz.md`** enthält alle 76 Regeln (R1–R76) mit vollständigem Schema
+**`referenz.md`** enthält alle ~60 Regeln (R1–R60) mit vollständigem Schema
 (Regel / Warum / Wann nicht / Schlecht → Gut), Fehlermeldungs-Abschnitt,
-Checkliste und Quellen. ~600 Zeilen, ~6.000 Token.
+Checkliste und Quellen. ~700 Zeilen, ~6.000 Token.
 
 Lade `referenz.md` wenn:
 - Aktives Lektorat eines konkreten Texts
