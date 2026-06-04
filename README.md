@@ -70,7 +70,7 @@ Vorschläge für neue Regeln, Korrekturen und Beispiele sind willkommen. Lies [C
 ## Weitere Doku
 
 - [`skills/german-style-guide/referenz.md`](skills/german-style-guide/referenz.md) — vollständige Regeln mit Beispielen
-- [`docs/`](docs/) — Plan und Design der Marketplace-Veröffentlichung
+- [`docs/FAQ.md`](docs/FAQ.md) — häufige Fragen
 - [CHANGELOG.md](CHANGELOG.md) — Versionshistorie
 - [SECURITY.md](SECURITY.md) — Schwachstellen melden
 

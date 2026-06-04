@@ -5,5 +5,8 @@
 .idea/
 .vscode/
 
-# Serena (kein LSP-Nutzen in diesem Prosa-Repo; via .claude/.no-serena deaktiviert)
+# Serena (kein LSP-Nutzen in diesem Prosa-Repo)
 .serena/
+
+# Lokale Claude-Code-Konfiguration (projektspezifisch, nicht fuer die Veroeffentlichung)
+.claude/
