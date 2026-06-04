@@ -7,7 +7,7 @@ Dieser Skill besteht aus Textregeln (Markdown und JSON). Er führt keinen Code a
 Melde eine Schwachstelle **nicht** über ein öffentliches Issue. Nutze stattdessen einen der folgenden Wege:
 
 - GitHub: "Report a vulnerability" über den Reiter **Security** des Repos (Private Vulnerability Reporting).
-- E-Mail: `micschr0@mailbox.org` <!-- TODO(Maintainer): Kontakt bestätigen oder ersetzen -->
+- E-Mail: `micschr0@mailbox.org`
 
 Bitte gib an:
 

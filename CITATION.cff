@@ -8,10 +8,10 @@ authors:
 repository-code: "https://github.com/micschr0/german-style-guide"
 license: MIT
 version: "1.0.0"
+date-released: 2026-05-25
 keywords:
   - "german"
   - "style-guide"
   - "technical-writing"
   - "claude-code"
   - "skill"
-# TODO(Maintainer): date-released ergaenzen, sobald 1.0.0 getaggt ist.
