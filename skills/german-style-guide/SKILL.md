@@ -73,22 +73,32 @@ Struktur, Reihenfolge, Übergänge.
 - R23: Übergänge explizit machen
 - R24: Überschriften konkret und aktiv formulieren
 - R25: Parallelismus in Listen und Aufzählungen
+- R26: Rhythmus durch Satzlängen-Variation
+- R27: Interpunktion als Stilmittel
 
 ### P6 · Konsistenz
 Ein Begriff, eine Bedeutung — im gesamten Dokument.
-- R26: Dasselbe Konzept immer mit demselben Begriff
-- R27: Terminologie beim ersten Auftreten einführen
-- R28: Gendersprache: neutrale Formulierungen, keine Sonderzeichen
-- R29: Einheitliche Zeitform im Dokument
-- R30: Einheitliche Anredeform (du/Sie/man)
+- R28: Dasselbe Konzept immer mit demselben Begriff
+- R29: Terminologie beim ersten Auftreten einführen
+- R30: Gendersprache: neutrale Formulierungen, keine Sonderzeichen
+- R31: Einheitliche Zeitform im Dokument
+- R32: Einheitliche Anredeform (du/Sie/man)
 
 ---
 
 ## Vollständige Referenz laden
 
-**`referenz.md`** enthält alle ~60 Regeln (R1–R60) mit vollständigem Schema
-(Regel / Warum / Wann nicht / Schlecht → Gut), Fehlermeldungs-Abschnitt,
-Checkliste und Quellen. ~700 Zeilen, ~6.000 Token.
+Die 6 Prinzipien oben decken R1–R32 ab. **`referenz.md`** enthält alle 76 Regeln
+(R1–R76) mit vollständigem Schema (Regel / Warum / Wann nicht / Schlecht → Gut),
+Checkliste und Quellen. ~630 Zeilen, ~5.000 Token.
+
+Über die 6 Prinzipien hinaus regelt `referenz.md`:
+- R33–R47: häufige Grammatikfehler (das/dass, Genitiv, Komma)
+- R48–R55: technische Texte (Markdown, Code-Bezug)
+- R56–R60: Fehlermeldungen
+- R61–R70: Denglisch-Verbfallen (returnen, gemonitort, gecacht, gemappt …)
+- R71–R74: Zeitform und Person
+- R75–R76: Artikel für Loanwords und Komposita
 
 Lade `referenz.md` wenn:
 - Aktives Lektorat eines konkreten Texts
