@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Wenn du diesen Skill nutzt, zitiere ihn bitte wie folgt."
+title: "german-style-guide: Deutsche Stilregeln für technische Texte"
+abstract: "Ein Claude-Code-Skill mit deutschen Stilregeln für technische Texte, gestützt auf Engel (1911), Schneider, die tekom-Leitlinie und das Hamburger Verständlichkeitsmodell."
+type: software
+authors:
+  - name: "micschr0"
+repository-code: "https://github.com/micschr0/german-style-guide"
+license: MIT
+version: "1.0.0"
+keywords:
+  - "german"
+  - "style-guide"
+  - "technical-writing"
+  - "claude-code"
+  - "skill"
+# TODO(Maintainer): date-released ergaenzen, sobald 1.0.0 getaggt ist.
