@@ -473,6 +473,56 @@ auf Fehler hitten→auf Fehler stoßen
 "Es ist wichtig, dass ..." (weak opener)→direkt mit Subjekt beginnen: "X muss ..."
 "Wenn X, dann Y, was Z macht" (stacked calque)→in zwei Sätze aufteilen
 
+### R65: Datentransfer-Verben eindeutschen
+download→herunterladen, upload→hochladen, load→laden (Modul/Image) bzw. einlesen (Datei/Stream parsen), lazy load→nachladen
+Warum: Hybridflexion wie "downgeloadet", "geuploadet", "geloadet" ist unflektierbares Stolper-Deutsch; die deutschen Vollverben sind eingebürgert und sauber trennbar.
+Wann nicht: *der Download* / *der Upload* (Substantive) bleiben. Git-Verben *pushen, pullen, fetchen, clonen* bleiben als Fachkonzepte. False friend: *load* im Sinn von Auslastung wird *Last/Lasttest*, nie *einlesen*.
+❌ "Das Image wird beim Start downgeloadet." ✓ "… heruntergeladen."
+❌ "Die Konfig wird beim Start geloadet." ✓ "… eingelesen." (Parsen) / "… geladen." (allgemeines load)
+❌ "Lade das Artefakt in die Registry up." ✓ "… in die Registry hoch."
+
+### R66: Betriebsverben eindeutschen — Substantive behalten
+monitort→überwacht, provisioniert→richtet ein, gescheduled→eingeplant / terminiert
+Warum: Die deutschen Verben sind präzise; die Mischkonjugation ("gemonitort", "gescheduled") ist holprig und uneinheitlich.
+Wann nicht: *Monitoring, Provisioning, Scheduler, Cronjob* bleiben. *deployen* und *Deployment* bleiben ebenfalls (siehe Anti-Regel #2 und R9) — "Bereitstellung" ist hier KEIN Ersatz.
+❌ "Prometheus monitort die Latenz." ✓ "Prometheus überwacht die Latenz."
+❌ "Terraform provisioniert die VMs." ✓ "Terraform richtet die VMs ein."
+❌ "Der Cronjob ist für Mitternacht gescheduled." ✓ "… ist für Mitternacht eingeplant."
+
+### R67: Daten und Persistenz
+gecacht→zwischengespeichert (in Prosa), persistieren→speichern (außerhalb ORM), syncen→abgleichen / synchronisieren, dumpen→exportieren / ausgeben, seeden→mit Grunddaten befüllen
+Warum: Englischer Stamm plus deutsche Beugung ergibt echtes Denglisch; das deutsche Verb steht bereit und ist präziser.
+Wann nicht: *persistieren* bleibt in ORM-Fachsprache (JPA/Doctrine: "die Entität persistieren"); *synchronisieren, migrieren, serialisieren* sind etablierte Fachbegriffe; *der Cache* und *das Caching* bleiben.
+❌ "Die Response wird gecacht." ✓ "Die Response wird zwischengespeichert."
+❌ "Der Job synct die Tabellen jede Nacht." ✓ "Der Job gleicht die Tabellen jede Nacht ab."
+❌ "Dumpe die Konfig nach config.json." ✓ "Exportiere die Konfig nach config.json."
+❌ "Das Skript seedet die Datenbank." ✓ "Das Skript befüllt die Datenbank mit Grunddaten."
+
+### R68: Verarbeitung und Transformation
+prozessieren→verarbeiten, gemappt→zugeordnet / abgebildet, batchen→stapelweise verarbeiten
+Warum: Englischer Stamm mit deutscher Beugung ergibt echtes Denglisch; *prozessieren* heißt auf Deutsch "einen Prozess führen / klagen" — ein echter Falschfreund.
+Wann nicht: *aggregieren* (Lateinstamm) und *streamen* (etabliert) bleiben; das Nomen *Batch* bleibt — nur *batchen* ersetzen. *parsen* / *Parser* bleiben (CS-Lehnwort), und das Nomen *Mapping* bleibt.
+❌ "Der Worker prozessiert die Events." ✓ "Der Worker verarbeitet die Events."
+❌ "Die Felder werden auf das DTO gemappt." ✓ "Die Felder werden dem DTO zugeordnet."
+❌ "Die Spalten werden auf das Schema gemappt." ✓ "Die Spalten werden auf das Schema abgebildet."
+❌ "Der Importer batcht die Inserts." ✓ "Der Importer verarbeitet die Inserts stapelweise."
+
+### R69: Skalierungs- und Lifecycle-Verben eindeutschen
+scalen→skalieren (gerichtet: hoch-/herunterskalieren), restarten→neu starten, killen→abbrechen / hart beenden, shutdownen→herunterfahren, cleanuppen→aufräumen, resetten→zurücksetzen
+Warum: Lifecycle-Operationen, die R61–R66 nicht abdecken; die deutschen Verben sind präzise und kurz, die Mischformen ("gekillt", "geresettet") klingen amateurhaft.
+Wann nicht: *Reboot, Shutdown, Cleanup, Reset* (Substantive) bleiben. *rebooten, resetten, killen* sind mündlich toleriert; "SIGKILL senden" bleibt. Bedeutung beachten: killen = hart beenden, nicht herunterfahren.
+❌ "Wir scalen die Replikas hoch." ✓ "Wir skalieren die Replikas hoch."
+❌ "Der hängende Prozess wird heruntergefahren." ✓ "… wird hart beendet." (killen ≠ herunterfahren)
+❌ "Das Skript cleanuppt die Temp-Dateien." ✓ "Das Skript räumt die Temp-Dateien auf."
+
+### R70: Konfigurations- und Setup-Verben eindeutschen
+setuppen→einrichten, enablen / disablen→aktivieren / deaktivieren, overriden→überschreiben / übersteuern, mounten→einbinden
+Warum: Klare, kurze deutsche Entsprechungen; die Mischformen ("gemountet", "overridden", "gesetupt") sind nicht sauber flektierbar.
+Wann nicht: *konfigurieren* ist eingebürgert und bleibt (*configuren* ist kein Wort). *Setup, Mount, Override* (Substantive) bleiben; *mounten* im Filesystem-Kontext toleriert. Sinn beachten: Methode/Default → *überschreiben*; Wert vorrangig setzen → *übersteuern*.
+❌ "Das Feature-Flag wird disabled." ✓ "Das Feature-Flag wird deaktiviert."
+❌ "Wir setuppen die CI-Umgebung." ✓ "Wir richten die CI-Umgebung ein."
+❌ "Der Default wird per ENV overridden." ✓ "Der Standardwert wird per ENV übersteuert."
+
 ---
 
 ## Zeitform und Person (R71–R74)
@@ -514,14 +564,16 @@ Häufigste Fehlerquelle: falsches Genus. Korrekte Artikel:
 
 **der:** Commit, Rebase, Merge, Branch, Build, Bug, Fix, Patch, Hook, Mock, Stub,
 Wrapper, Decorator, Provider, Service, Controller, Token, Header, Callback,
-Listener, State, Request, Endpoint, Cache, Index, Retry, Diff, Rollback, Hotfix
+Listener, State, Request, Endpoint, Cache, Index, Retry, Diff, Rollback, Hotfix,
+Download, Upload, Reboot, Scheduler, Cronjob, Mount, Dump
 
 **die:** Pipeline, Exception, Fixture, Assertion, Response, Session, Migration,
 Query, Prop, Factory, Komponente, Schnittstelle, Regression, Roadmap
 
 **das:** Interface, Feature, Event, Ticket, Issue, Template, Deployment, Staging,
 Logging, Monitoring, Framework, Caching, Routing, Rendering, Payload,
-Refactoring, Repository, Schema, Release, Timeout (oder *der*)
+Refactoring, Repository, Schema, Release, Timeout (oder *der*), Shutdown,
+Cleanup, Setup, Mapping, Override, Provisioning
 
 Wenn kein Eintrag: zuerst Duden prüfen, dann Microsoft German Style Guide.
 
@@ -563,7 +615,7 @@ Rein deutsche Komposita: Bindestrich optional, aber immer sicherer.
 - [ ] Abkürzungen erklärt
 
 **Sprache & Register**
-- [ ] Kein Denglisch-Verb (returnen, failen, callen, triggern, brechen…)
+- [ ] Kein Denglisch-Verb (returnen, failen, callen, triggern, geloadet, gemonitort, gecacht, gesynct, gemappt, gekillt, disabled, gemountet…)
 - [ ] Kein calqued Idiom (am Ende des Tages, auf derselben Seite…)
 - [ ] Zeitform: Präsens-Indikativ für Fakten, Perfekt für Abgeschlossenes
 - [ ] Kein Konjunktiv II ohne echten Gegenfall

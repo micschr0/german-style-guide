@@ -1,6 +1,6 @@
 # german-style-guide
 
-70 deutsche Stilregeln für technische Texte — automatisch angewendet, sobald Claude auf Deutsch schreibt.
+76 deutsche Stilregeln für technische Texte — automatisch angewendet, sobald Claude auf Deutsch schreibt.
 
 Der Skill verbessert deutsche README-Dateien, Commit-Messages, Fehlermeldungen, Incident Reports und technische Doku nach festen Regeln. Beim Schreiben wendet er die Regeln still an. Beim Lektorieren kommentiert er jede Änderung mit Regelreferenz.
 
@@ -42,7 +42,7 @@ Der Lektüremodus aktiviert sich, sobald du um Lektorat, Verbesserung oder Kriti
 | Grammatik | 15 |
 | Technische Texte | 8 |
 | Fehlermeldungen | 5 |
-| Denglisch-Fallen | 4 |
+| Denglisch-Fallen | 10 |
 | Zeitform und Person | 4 |
 | Artikel und Komposita | 2 |
 
