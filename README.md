@@ -1,4 +1,4 @@
-# german-style-guide
+# German Style Guide
 
 76 deutsche Stilregeln für technische Texte — automatisch angewendet, sobald Claude auf Deutsch schreibt.
 
@@ -14,6 +14,18 @@ Installiere den Skill in Claude Code:
 ```
 
 Claude Code lädt den Skill automatisch — kein Neustart nötig. Schreib danach eine deutsche Anfrage, und die Regeln greifen.
+
+## Was sich ändert
+
+Ein Beispiel. Ohne den Skill schreibt Claude umständliches Deutsch:
+
+> Nach Abschluss des Deployments wurde durch das System eine Überprüfung der Konfigurationsdateien durchgeführt. Im Anschluss daran erfolgt eine Benachrichtigung des Teams.
+
+Mit dem Skill wird daraus:
+
+> Nach dem Deployment prüft das System die Konfigurationsdateien und benachrichtigt das Team.
+
+Das sind **fünf Regeln auf einmal**: Aktiv statt Passiv, Verben statt Nominalstil, kürzere Sätze, keine Füllwörter, klare Handlungsperson — und der Skill macht das automatisch. Du musst nichts aktivieren.
 
 ## Die zwei Modi
 

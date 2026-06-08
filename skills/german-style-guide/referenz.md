@@ -32,6 +32,8 @@ Code-Blöcke, URLs, Variablennamen, Pfade nicht als Stilproblem markieren.
 
 ---
 
+> Gutes Deutsch versteht der Leser beim ersten Lesen — nicht der Schreiber beim ersten Schreiben.
+
 ## Regelkonflikte: Prioritätshierarchie
 
 Bei Widerspruch zwischen Regeln gilt:
@@ -102,11 +104,25 @@ Füllwörter: eigentlich→, grundsätzlich→, natürlich→, selbstverständli
 gewissermaßen→, sozusagen→, quasi→, irgendwie→konkretisieren, durchaus→,
 letztendlich→, bekanntlich→, im Grunde genommen→.
 
-### R4: Pleonasmen vermeiden
+### R4: Pleonasmen und Schmuck-Adjektive
 Zwei Wörter mit gleicher Bedeutung — eines streichen.
 weißer Schimmel→Schimmel, vorausplanen→planen, neu renovieren→renovieren,
 persönlich anwesend→anwesend, kurz zusammenfassen→zusammenfassen,
 rückwirkend im Nachhinein→rückwirkend, heiß erhitzen→erhitzen.
+
+**(B) Schmuck-Adjektive, Edelfüllsel, Absoluta.** Adjektive nur, wenn sie unterscheiden (»das blaue Kleid«). Streichen, wenn sie nur schmücken — Test: Streiche das Adjektiv. Ändert sich der Informationsgehalt? Nein → streichen.
+
+- **Schmuck-Adjektive:** intensiv→, tiefgreifend→, bedeutsam→, wesentlich→
+- **Edelfüllsel:** riesig→, enorm→, total→, absolut→, extrem→, wirklich→
+- **Absoluta:** einzigartig, optimal, perfekt — nicht steigerbar, daher falsch verwendet. Streichen oder umformulieren.
+
+| ❌ | ✓ |
+|----|----|
+| intensive Bemühungen | Bemühungen |
+| sehr große Wellen | haushohe Wellen |
+| einzigartiges Erlebnis | besonderes Erlebnis |
+
+Grammatik-Notiz: »in keinster Weise« ist grammatisch falsch → siehe R33–R47.
 
 ### R5: Modewörter konkretisieren
 Wann nicht: Fachbegriff in seinem Fachkontext (agil im Scrum-Kontext OK).
@@ -135,6 +151,14 @@ Wann nicht: Kurzer Relativsatz der nicht unterbricht ist OK.
 ❌ "Der Container, der beim letzten Deployment, das gestern Nacht lief, gestartet wurde, ist abgestürzt."
 ✓ "Der Container ist abgestürzt. Er wurde beim gestrigen Nacht-Deployment gestartet."
 
+**Klemmkonstruktionen** — Einschübe, die zusammengehörende Satzteile trennen:
+
+❌ "Er schlägt, nachdem er die gesamte Akte, die ihm sein Kollege gestern übergeben hatte, gelesen hatte, vor…"
+✓ "Er las die Akte. Dann schlug er vor…"
+
+❌ "Die von ihm seit Jahren verfolgte Strategie"
+✓ "Die Strategie, die er seit Jahren verfolgte"
+
 ### R8: Nebensätze ans Ende
 Hauptsatz vor Nebensatz. Einschübe in der Mitte vermeiden.
 Wann nicht: Einleitende Bedingung darf voran stehen: "Falls X, dann Y."
@@ -154,6 +178,15 @@ Wann nicht: z. B., d. h., etc., bzw. — universell bekannt.
 ❌ "Der SRE hat den RCA abgeschlossen. MTTR: 4h."
 ✓ "Der Site Reliability Engineer (SRE) hat den Root Cause Analysis (RCA) Bericht abgeschlossen. Mean Time to Recovery (MTTR): 4h."
 
+### R42: Positiv formulieren
+Doppelte Verneinungen und unnötige Negationen vermeiden. Warum: Verneinungen zwingen den Leser zum mentalen Rückübersetzen — positiv Formuliertes wird sofort verstanden.
+Wann nicht: Ironie und bewusste Untertreibung (Litotes) — »nicht schlecht« als Stilmittel.
+❌ "nicht selten" → ✓ "oft"
+❌ "nicht unumstritten" → ✓ "umstritten"
+❌ "nicht ohne Bedeutung" → ✓ "bedeutsam"
+❌ "nicht unerheblich" → ✓ "erheblich"
+❌ "Es ist nicht unmöglich, dass der Service startet." → ✓ "Der Service kann starten."
+
 ---
 
 ## P3 · Aktivität
@@ -167,7 +200,7 @@ Aktiv wenn: "von wem?" fehlt und es relevant wäre. Warum: Aktiv = Verantwortung
 ❌→✓: "muss angepasst werden"→"passe an", "Es wurde deployt"→"Das Team hat deployt",
 "Der Fehler wurde behoben"→"Lisa hat den Fehler behoben."
 
-### R12: Verben statt Substantivierungen
+### R12: Verben wählen und schärfen
 Endungen auf -ung, -keit, -heit, -ierung, -schaft → durch Verben ersetzen.
 Warum: Nominalstil (Hauptwortseuche) macht Texte schwer und bürokratisch.
 Wann nicht: Abstrakte Konzepte als Substantiv manchmal unvermeidbar:
@@ -181,11 +214,28 @@ Häufigste Muster:
 "Erwähnung verdienen"→erwähnenswert sein, "in Frage kommen"→möglich sein,
 "Verwendung finden"→verwendet werden/nutzen.
 
+**Streckverben-Blacklist:** durchführen→, erfolgen→, vornehmen→, tätigen→, bewerkstelligen→, bewirken→, erlangen→, erzielen→, in Angriff nehmen→.
+
+**(b) Blasse Verben schärfen.** Ersetze blasse Verben (sein, haben, machen, tun, sagen, gehen) durch präzisere, wenn sie eine spezifische Handlung nur umschreiben. Ein starkes Verb transportiert die Handlung ohne Adjektive.
+
+| Schwach | Stark |
+|---------|-------|
+| Er betrat den Raum mit Lärm | Er polterte herein |
+| Sie sprach laut | Sie rief / schrie / donnerte |
+| Das Wasser bewegte sich schnell | Das Wasser schoss / rauschte |
+
+Wann nicht: Wenn das blasse Verb die präziseste Option ist — kein starkes Verb erzwingen.
+
 ### R13: Hauptsache in den Hauptsatz
 Kernaussage im Hauptsatz, nicht im Nebensatz.
 Wann nicht: Einleitende Bedingung im Nebensatz OK ("Wenn X, dann Y").
 ❌ "Obwohl der Service deployt wurde, schlägt der Health-Check fehl."
 ✓ "Der Health-Check schlägt fehl — obwohl der Service deployt wurde."
+
+**Satzbau:** Subjekt und Verb so früh wie möglich — SVO-Wortstellung im Hauptsatz anstreben. Lange Attribute nicht vor das Subjekt stellen — sie gehören in einen Relativsatz.
+
+❌ "Der gestern Abend in der Stadt gesehene Mann…"
+✓ "Den Mann, den ich gestern sah…"
 
 ### R14: Handelnde Person nennen
 Wer handelt? Nennen. Warum: "man"/"es" = unklare Zuständigkeit.
@@ -230,6 +280,11 @@ Wann nicht: Technische Abstraktionen mit präziser Definition sind OK (Latenz, D
 "Probleme beheben"→"Fehlermeldungen im Log korrigieren",
 "System verbessern"→"Antwortzeit von 800ms auf 200ms reduzieren".
 
+Je konkreter, desto besser — die kleinste, konkreteste Einheit wählen:
+❌ Vegetation → ✓ Eiche / Linde / Farn
+❌ Transportmittel → ✓ Fahrrad / U-Bahn
+❌ Wohnsituation → ✓ Zwei-Zimmer-Wohnung im dritten Stock
+
 ---
 
 ## P5 · Gliederung
@@ -241,9 +296,18 @@ Wann nicht: Postmortems mit Chronologie, bewusstes Storytelling.
 ❌ "Wir haben Logs analysiert und verschiedene Konfigurationen getestet und festgestellt, dass das Problem an einem fehlenden Timeout liegt."
 ✓ "Das Problem: fehlender Timeout. Wir haben Logs analysiert und Konfigurationen getestet."
 
+**Schlechte Einstiege vermeiden.** Diese Formeln sind Leser-Killer — streiche sie ersatzlos:
+- "Seit jeher hat der Mensch…"
+- "In der heutigen Zeit ist es wichtiger denn je…"
+- "Im Folgenden wird dargestellt…"
+
+Stattdessen: Kernaussage, Frage, provokante These oder konkrete Szene.
+
 ### R22: Absatz = eine Idee
 Eine Idee, 3–5 Sätze. Struktur: Themensatz → Erklärung → Abschluss.
 Wann nicht: Einzelsatz-Übergänge dürfen alleinstehen.
+
+Abschließend prüfen: Was trägt dieser Absatz zur Kernbotschaft bei? Trägt er nichts bei → streichen oder umschreiben.
 
 ### R23: Übergänge explizit machen
 Logische Beziehung zeigen. Wann nicht: Nicht jeden Satz mit Übergangswort beginnen.
@@ -280,6 +344,8 @@ Dasselbe Konzept immer mit demselben Begriff. Verschiedene Begriffe = verschiede
 Wann nicht: Bewusster Vergleich von Alternativen.
 ❌ "Konfiguration … Einstellungen … Parameter" (für dasselbe Konzept)
 ✓ Einen Begriff wählen und durchhalten.
+
+Nur Nebensächliches variieren — das Wichtige ruhig wiederholen. Wien muss nicht zur »Donaumetropole« werden (der Leser denkt dann an den Fluss, nicht die Stadt). Der Tisch bleibt der Tisch — nicht »das Möbelstück« oder »der Vierbeiner«.
 
 ### R29: Terminologie einführen
 Fachbegriffe beim ersten Auftreten ausschreiben. Format: Ausgeschrieben (ABK).
@@ -339,10 +405,6 @@ Bedeutet "im anderen Fall" oder "genauer gesagt" — nicht einfach "und" oder "o
 Kein Komma vor und/oder wenn kein vollständiger Nebensatz folgt.
 ❌ "Startet, und prüft die Verbindung." ✓ "Startet und prüft die Verbindung."
 ✓ "Startet, und die Verbindung wird geprüft." (zwei Hauptsätze → Komma OK)
-
-### R42: Doppelte Verneinung vermeiden
-Zwei Verneinungen = Bejahung + verwirrende Syntax.
-❌ "Es ist nicht unmöglich, dass der Service startet." ✓ "Der Service kann starten."
 
 ### R43: kein statt nicht ein
 ❌ "Das ist nicht ein Fehler der ignoriert werden kann." ✓ "Das ist kein Fehler ..."
@@ -590,29 +652,42 @@ Rein deutsche Komposita: Bindestrich optional, aber immer sicherer.
 
 ---
 
+**Text beenden, wenn alles gesagt ist.** Kein Ausklingen, kein Nachtreten. Test: Fehlt etwas, wenn du den letzten Satz streichst? Nein → streichen. Jeder Text ist einen Satz zu lang.
+
+---
+
 ## Checkliste
 
 **Kürze**
 - [ ] Kein Satz länger als 25 Wörter
 - [ ] Füllwörter gestrichen
+- [ ] Schmuck-Adjektive und Edelfüllsel gestrichen
 
 **Aktivität**
 - [ ] Kein ungerechtfertigtes Passiv (erlaubtes Passiv prüfen!)
 - [ ] Keine auflösbaren Substantivierungen auf -ung/-keit/-ierung
+- [ ] Blasse Verben durch präzisere ersetzt
 
 **Konkretheit**
 - [ ] Zahlen statt vage Beschreibungen
 - [ ] Ursache-Wirkung explizit
+- [ ] Kleinste konkreteste Einheit gewählt
 
 **Gliederung**
 - [ ] Kernaussage am Anfang
 - [ ] Überschriften konkret
 - [ ] Listen parallel formuliert
+- [ ] Text endet, wenn alles gesagt ist
 
 **Konsistenz**
 - [ ] Ein Begriff je Konzept
 - [ ] Einheitliche Anredeform
 - [ ] Abkürzungen erklärt
+
+**Stil & Klarheit**
+- [ ] Positiv formuliert (kein »nicht selten«)
+- [ ] Keine abgedroschenen Einstiegsfloskeln
+- [ ] Erster Satz fesselt
 
 **Sprache & Register**
 - [ ] Kein Denglisch-Verb (returnen, failen, callen, triggern, geloadet, gemonitort, gecacht, gesynct, gemappt, gekillt, disabled, gemountet…)
