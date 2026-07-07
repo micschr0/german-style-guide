@@ -1,0 +1,17 @@
+# https://github.com/gitleaks/gitleaks
+title = "gitleaks config"
+
+# Allow-list: known false positives (e.g. lockfiles, fixtures, snapshots).
+[allowlist]
+  description = "global allow list"
+  paths = [
+    '''Cargo\.lock''',
+    '''package-lock\.json''',
+    '''yarn\.lock''',
+    '''pnpm-lock\.yaml''',
+    '''Gemfile\.lock''',
+    '''fixtures/.*\.json''',
+    '''tests/snapshots/.*\.snap''',
+    '''screenshots/.*\.png''',
+    '''docs/.*\.html''',
+  ]
