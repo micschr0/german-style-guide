@@ -1,142 +1,1830 @@
 {
-  "skill_name": "german-style-guide",
+  "schema_version": 3,
+  "skill_name": "klartext",
+  "purpose": "Entwicklungsfälle zu Sprachqualität, Leseaufwand, Inhaltstreue und Nutzbarkeit; keine gemessenen Modellresultate.",
+  "rubric": [
+    {
+      "id": "fidelity",
+      "name": "Bedeutungswahrung und Quellenbindung",
+      "anchors": {
+        "0": "Zentrale Aussage verfälscht oder unbelegte Tatsachen erfunden.",
+        "2": "Wesentliche Inhalte erhalten, aber relevante Präzision oder Unsicherheit verloren.",
+        "4": "Alle auftragsrelevanten Bedeutungsmerkmale und autorisierten Änderungen korrekt."
+      }
+    },
+    {
+      "id": "task_completion",
+      "name": "Auftrag und Vollständigkeit",
+      "anchors": {
+        "0": "Auftrag verfehlt.",
+        "2": "Teilweise erfüllt oder wesentliche Auslassungen.",
+        "4": "Vollständig im beauftragten Umfang erfüllt."
+      }
+    },
+    {
+      "id": "clarity",
+      "name": "Verständlichkeit und Orientierung",
+      "anchors": {
+        "0": "Schwer verständlich oder irreführend.",
+        "2": "Verständlich mit vermeidbaren Hürden.",
+        "4": "Kernaussage und Zusammenhänge klar; benötigte Informationen am passenden Ort."
+      }
+    },
+    {
+      "id": "audience",
+      "name": "Zielgruppe und Konventionen",
+      "anchors": {
+        "0": "Zielgruppe oder ausdrücklich vorgegebene Konvention verfehlt.",
+        "2": "Teilweise passend, einzelne unnötige Abweichungen.",
+        "4": "Erklärungstiefe, Wortwahl und vereinbarter Stil passen zu Ziel und Vorwissen."
+      }
+    },
+    {
+      "id": "economy",
+      "name": "Angemessener Leseaufwand und Eingriffe",
+      "anchors": {
+        "0": "Stark aufgebläht, unnötig zerstückelt oder wesentlicher Inhalt weggekürzt.",
+        "2": "Einzelne unnötige Eingriffe oder Umwege.",
+        "4": "Keine unnötigen Suchwege oder Dopplungen; nötiger Kontext und sinnvolle Einheiten erhalten."
+      }
+    }
+  ],
+  "primary_quality_case_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "delivery_case_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    35,
+    36,
+    37,
+    38,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "learning_case_ids": [
+    39,
+    40,
+    41,
+    42
+  ],
+  "process_case_ids": [
+    23,
+    33,
+    34
+  ],
   "evals": [
     {
       "id": 1,
-      "eval_name": "incident-report-lektorat",
-      "prompt": "Bitte lektoriere diesen Incident Report und verbessere den Stil:\n\n---\nAm gestrigen Abend kam es zu einer Beeinträchtigung der Verfügbarkeit des Produktivsystems, die durch einen fehlerhaften Konfigurationsparameter verursacht wurde, welcher im Rahmen des regelmäßig stattfindenden Deployment-Prozesses zur Anwendung gebracht wurde. Die Durchführung der Behebungsmaßnahmen erfolgte durch das On-Call-Team und war nach einer Zeitdauer von ungefähr zwei Stunden abgeschlossen. Grundsätzlich ist davon auszugehen, dass durch die Implementierung eines automatisierten Validierungsprozesses eine Vermeidung ähnlicher Vorkommnisse in der Zukunft möglich sein wird.\n---",
-      "expected_output": "Kürzerer, aktiverer Text. Nominalstil aufgelöst. Passiv ersetzt. Kernaussage zuerst. Konkrete Zahlen. Regelreferenzen im Lektüremodus.",
+      "eval_name": "incident-unsicherheit",
+      "task_type": "rewrite",
+      "prompt": "Lektoriere diesen Incident Report für das Bereitschaftsteam. Gib nur die überarbeitete Fassung aus:\n\nAm Dienstag kam es für ungefähr zwei Stunden zu einer Beeinträchtigung des Produktivsystems. Die Durchführung der Behebung erfolgte durch das On-Call-Team. Möglicherweise war ein fehlerhafter Konfigurationsparameter die Ursache. Eine Prüfung dieser Vermutung steht noch aus.",
       "files": [],
-      "assertions": [
-        {
-          "text": "Kein Satz länger als 25 Wörter im Ergebnis"
-        },
-        {
-          "text": "Mindestens eine Regelreferenz [R...] vorhanden"
-        },
-        {
-          "text": "Keine Nominal-Ketten (-ung/-keit) im überarbeiteten Text"
-        },
-        {
-          "text": "Vergleichstabelle oder Vorher/Nachher-Gegenüberstellung vorhanden"
-        },
-        {
-          "text": "Baseline enthält keine Regelreferenzen"
-        }
-      ]
+      "invariants": [
+        "Dienstag; Dauer ungefähr zwei Stunden",
+        "Behebung durch das On-Call-Team",
+        "Konfigurationsfehler ist eine ungeprüfte Vermutung"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Ursache als bestätigt ausgeben",
+        "Aus Beeinträchtigung vollständigen Ausfall machen",
+        "Ungefähre Dauer zu exaktem Messwert machen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "fidelity",
+        "uncertainty"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
     },
     {
       "id": 2,
-      "eval_name": "readme-schreiben",
-      "prompt": "Schreibe ein kurzes README für ein CLI-Tool namens 'rathole-manager', das rathole-Tunnel verwaltet. Starte, stoppe und liste Tunnel. Geschrieben in Rust. Nur auf Deutsch.",
-      "expected_output": "README beginnt mit einem Satz Nutzen. Schnellstart vorhanden. Imperativ in Befehlen. Kein Nominalstil. Klare Struktur.",
+      "eval_name": "readme-ohne-erfundene-cli",
+      "task_type": "create",
+      "prompt": "Schreibe ein kurzes deutsches README für rathole-manager. Das Rust-Tool verwaltet rathole-Tunnel: starten, stoppen, auflisten. Installationsweg, CLI-Syntax und unterstützte Plattformen sind noch nicht festgelegt. Formuliere diese offenen Punkte als offen; erfinde keine Befehle.",
       "files": [],
-      "assertions": [
-        {
-          "text": "README beginnt mit Nutzen-Satz (nicht 'Installation' oder 'Features')"
-        },
-        {
-          "text": "Schnellstart-Abschnitt mit Codebeispielen vorhanden"
-        },
-        {
-          "text": "Befehle im Imperativ formuliert"
-        },
-        {
-          "text": "with_skill hat mehr Abschnitte als Baseline"
-        },
-        {
-          "text": "Kein Nominalstil in Beschreibungen"
-        }
-      ]
+      "invariants": [
+        "Name rathole-manager; Rust",
+        "Tunnel starten, stoppen und auflisten",
+        "Installation, Syntax und Plattformen nicht festgelegt"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Nicht belegte Installationsbefehle oder CLI-Flags als verwendbar darstellen",
+        "Unterstützte Plattformen behaupten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "creation",
+        "missing_context"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
     },
     {
       "id": 3,
-      "eval_name": "fehlermeldung-verbessern",
-      "prompt": "Verbessere diese Fehlermeldungen nach guten Stilregeln:\n\n1. Error: Something went wrong.\n2. Fehler: Die Operation konnte nicht durchgeführt werden.\n3. Warning: Possible issue detected.\n4. Error: Verbindungsfehler aufgetreten.",
-      "expected_output": "Ursache genannt. Konkrete Werte. Handlung vorgeschlagen. Aktiv formuliert.",
+      "eval_name": "fehlermeldungen-unbekannte-ursachen",
+      "task_type": "rewrite",
+      "prompt": "Verbessere diese vier Fehlermeldungen für eine deutsche Oberfläche. Es liegen keine weiteren Diagnosedaten vor. Gib vier Meldungen aus und höchstens einen kurzen Hinweis auf fehlenden Kontext.\n1. Error: Something went wrong.\n2. Fehler: Die Operation konnte nicht durchgeführt werden.\n3. Warning: Possible issue detected.\n4. Error: Verbindungsfehler aufgetreten.",
       "files": [],
-      "assertions": [
-        {
-          "text": "Alle 4 Meldungen enthalten konkrete Ursache"
-        },
-        {
-          "text": "Alle 4 Meldungen enthalten Handlungsvorschlag"
-        },
-        {
-          "text": "Regelreferenzen R56–R60 genannt"
-        },
-        {
-          "text": "Konkrete Werte (Port, Pfad, Timeout) in verbesserter Meldung"
-        },
-        {
-          "text": "Baseline verbessert Meldungen nicht strukturiert"
-        }
-      ]
+      "invariants": [
+        "Vier Meldungen und Reihenfolge erhalten",
+        "Dritte Meldung bleibt Warnung über ein mögliches Problem",
+        "Vierte Meldung betrifft eine Verbindung; die übrigen Vorgänge sind unbekannt"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [
+        "Die ausgelöste Operation und mögliche Behebung sind nicht bekannt."
+      ],
+      "hard_failures": [
+        "Ursache, Dienst, Pfad, Port oder Timeout erfinden",
+        "Mögliche Störung in bestätigten Fehler umwandeln",
+        "Destruktive Behebung ohne Kontext empfehlen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "fidelity",
+        "missing_context"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
     },
     {
       "id": 4,
-      "eval_name": "schreibmodus-still",
-      "prompt": "Schreib mir eine kurze E-Mail an mein Team: Wir haben heute Nacht das Deployment verschoben wegen eines Konfigurationsproblems. Neuer Termin ist Donnerstag 22 Uhr.",
-      "expected_output": "Direkte E-Mail ohne Lektorat-Kommentare. Kein [R...]. Aktiv, kurze Sätze, Kernaussage zuerst — aber still angewendet.",
+      "eval_name": "email-direkt",
+      "task_type": "create",
+      "prompt": "Schreib eine kurze E-Mail an mein Team: Wir haben heute Nacht das Deployment wegen eines Konfigurationsproblems verschoben. Neuer Termin ist Donnerstag 22 Uhr. Keine weiteren Informationen sind bekannt.",
       "files": [],
-      "assertions": [
-        {
-          "text": "Keine Regelreferenzen [R...] im Output (Schreibmodus = still)"
-        },
-        {
-          "text": "Kein Passiv im Output"
-        },
-        {
-          "text": "Kernaussage (Deployment verschoben) im ersten Satz"
-        },
-        {
-          "text": "Konkreter Termin (Donnerstag 22 Uhr) genannt"
-        }
-      ]
+      "invariants": [
+        "Deployment heute Nacht verschoben",
+        "Grund: Konfigurationsproblem",
+        "Neuer Termin Donnerstag 22 Uhr"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Datum, Zeitzone, Verantwortliche oder Ausfall ergänzen",
+        "Donnerstag 22 Uhr verändern"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "creation",
+        "output_format"
+      ],
+      "output_contract": "Kurze versandfertige E-Mail ohne Änderungsanalyse oder Regelreferenzen."
     },
     {
       "id": 5,
-      "eval_name": "ambigue-anfrage-lektueremodus",
-      "prompt": "Kannst du das besser formulieren? Die Dokumentation der Durchführung von Deployments erfolgt im Wiki.",
-      "expected_output": "Lektüremodus greift. Regelreferenzen vorhanden. Mehrere Varianten angeboten.",
+      "eval_name": "umformulieren-ohne-regelapparat",
+      "task_type": "rewrite",
+      "prompt": "Kannst du das besser formulieren? Gib nur einen Satz aus: Die Dokumentation der Durchführung von Deployments erfolgt im Wiki.",
       "files": [],
-      "assertions": [
+      "invariants": [
+        "Die Durchführung von Deployments wird im Wiki dokumentiert",
+        "Kein bestimmter Autor genannt"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Neue verantwortliche Person oder Gruppe nennen",
+        "Dokumentation durch Ausführung von Deployments im Wiki ersetzen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "economy",
+        "output_format",
+        "nominal_style"
+      ],
+      "output_contract": "Genau ein überarbeiteter Satz, ohne Erklärung oder Regelnummer."
+    },
+    {
+      "id": 6,
+      "eval_name": "langtext-monitoring",
+      "task_type": "rewrite",
+      "prompt": "Lektoriere das beigefügte Dokument für das Bereitschaftsteam. Erhalte alle fachlichen Aussagen, Unsicherheiten und Zuständigkeiten. Gib nur die vollständige überarbeitete Fassung mit den vorhandenen Abschnittsthemen aus.",
+      "files": [
+        "fixtures/monitoring.md"
+      ],
+      "invariants": [
+        "Zwölf Linux-Hosts, drei Dienste, Standort Nord; keine Aussage über Süd",
+        "Prometheus alle 30 Sekunden, Aufbewahrung 14 Tage",
+        "Warnung: fünf Minuten über 85 Prozent; kritisch: zwei Minuten über 95 Prozent",
+        "Keine automatischen Neustarts; Logprüfung ist eine Empfehlung",
+        "Dienstag 09:10 orders-api-Antwortzeit; 09:12 Datenbank-Speicher; Kausalität nicht nachgewiesen; Dienst erreichbar",
+        "ops-observer liest; ops-editor ändert; Zuständigkeiten bleiben getrennt",
+        "Wartung donnerstags 18–19 Uhr; Ankündigung spätestens vorheriger Arbeitstag",
+        "Freitag Test nur in Testumgebung; Produktionsschwellen nicht freigegeben",
+        "Langzeitaufbewahrung ist Vorschlag ohne Budget/Termin/Freigabe"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Zusammenfassen statt vollständiger Bearbeitung",
+        "Ursächlichen Zusammenhang bestätigen",
+        "Vorschlag oder Empfehlung in Pflicht/Freigabe umwandeln",
+        "Schwellen, Intervalle, Akteure oder Rechte vertauschen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "long_text",
+        "fidelity"
+      ],
+      "output_contract": "Vollständiger überarbeiteter Dokumenttext; keine Prozesssimulation oder behaupteten Werkzeugaufrufe."
+    },
+    {
+      "id": 7,
+      "eval_name": "passiv-nullkorrektur",
+      "task_type": "proofread",
+      "prompt": "Prüfe ausschließlich Rechtschreibung und Grammatik. Gib nur den gegebenen Text aus, falls er korrekt ist: Die Anfrage wird asynchron verarbeitet.",
+      "files": [],
+      "invariants": [
+        "Korrekte Passivform",
+        "Kein konkreter Akteur bekannt"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Akteur erfinden",
+        "Fehler behaupten, nur weil Passiv verwendet wird"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "no_op",
+        "passive"
+      ],
+      "output_contract": "Exakt: Die Anfrage wird asynchron verarbeitet."
+    },
+    {
+      "id": 8,
+      "eval_name": "kritik-statt-ungefragter-neufassung",
+      "task_type": "critique",
+      "prompt": "Prüfe diesen Satz auf Verständlichkeit. Nenne höchstens zwei konkrete Probleme; schreibe keine neue Fassung: Die Durchführung der Prüfung der Konfiguration erfolgt vor der Durchführung des Starts.",
+      "files": [],
+      "invariants": [
+        "Prüfung der Konfiguration liegt vor dem Start",
+        "Auftrag ist Analyse, keine Neufassung"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Eine unbekannte zuständige Person behaupten",
+        "Vollständige Neufassung als Hauptausgabe liefern"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "mode",
+        "critique"
+      ],
+      "output_contract": "Höchstens zwei konkrete Befunde, keine Neufassung; Regelnummern sind nicht verlangt."
+    },
+    {
+      "id": 9,
+      "eval_name": "modalitaet-erhalten",
+      "task_type": "rewrite",
+      "prompt": "Stilvorgabe: neutral und prägnant. Formuliere klarer und bewahre die Aussage: Der Dienst könnte wegen eines Timeouts ausfallen.",
+      "files": [],
+      "invariants": [
+        "Ausfall ist möglich, nicht bestätigt",
+        "Timeout ist mögliche Ursache"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Ausfall oder Ursache als Fakt darstellen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "fidelity",
+        "modality"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 10,
+      "eval_name": "modalitaet-autorisiert",
+      "task_type": "rewrite",
+      "prompt": "Stilvorgabe: neutral und prägnant. Mache aus der folgenden Empfehlung ausdrücklich eine verbindliche Pflicht. Ändere sonst nichts am Inhalt: Vor dem Start sollte das Team die Konfiguration prüfen.",
+      "files": [],
+      "invariants": [
+        "Akteur Team",
+        "Konfiguration prüfen vor dem Start"
+      ],
+      "authorized_changes": [
+        "Modalität der Konfigurationsprüfung: Empfehlung → verbindliche Pflicht"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "Neuen Akteur, Termin oder andere Prüfung hinzufügen",
+        "Empfehlung unverändert lassen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "authorized_change",
+        "modality"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 11,
+      "eval_name": "negation-und-bedingung",
+      "task_type": "rewrite",
+      "prompt": "Stilvorgabe: neutral und prägnant. Formuliere diesen Hinweis leichter verständlich. Bedingungen und Verbote müssen erhalten bleiben: Wenn die Sicherung fehlt, darf das Team die Migration nicht starten. Nur bei erfolgreicher Prüfung der Sicherung ist der Start erlaubt.",
+      "files": [],
+      "invariants": [
+        "Ohne Sicherung kein Start",
+        "Start nur nach erfolgreicher Prüfung der Sicherung",
+        "Akteur Team"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Verbot entfernen",
+        "Vorhandene Sicherung allein als ausreichende Startfreigabe darstellen",
+        "Prüfung der Migration statt der Sicherung verlangen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "fidelity",
+        "condition",
+        "negation"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 12,
+      "eval_name": "korrelation-keine-kausalitaet",
+      "task_type": "rewrite",
+      "prompt": "Stilvorgabe: neutral und prägnant. Formuliere verständlicher: Um 09:10 Uhr stieg die Latenz. Gleichzeitig erhöhte sich die CPU-Auslastung. Ob ein ursächlicher Zusammenhang besteht, ist noch ungeklärt.",
+      "files": [],
+      "invariants": [
+        "Gleichzeitiger Anstieg um 09:10",
+        "Kausalität ungeklärt"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "CPU-Anstieg als Ursache der Latenz bestätigen",
+        "Zeitpunkt verändern"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "fidelity",
+        "causality"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 13,
+      "eval_name": "fehlermeldung-bekannte-diagnose",
+      "task_type": "create",
+      "prompt": "Formuliere eine deutsche Fehlermeldung aus diesen gesicherten Diagnosedaten: TCP-Verbindung zu redis:6379 nach 5 s wegen Zeitüberschreitung fehlgeschlagen. Hinweis zur Behebung: Netzwerkverbindung prüfen. Keine weiteren Ursachen sind bekannt.",
+      "files": [],
+      "invariants": [
+        "redis:6379",
+        "Zeitüberschreitung nach 5 s",
+        "Netzwerkverbindung prüfen"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Redis-Prozess als abgestürzt darstellen",
+        "Port oder Timeout verändern",
+        "Neustart oder Änderung von Produktionsdaten empfehlen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "creation",
+        "known_context"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 14,
+      "eval_name": "technische-bezeichner-schuetzen",
+      "task_type": "rewrite",
+      "prompt": "Stilvorgabe: neutral und prägnant. Lektoriere ausschließlich die deutschen Prosasätze. Code, Pfade und Bezeichner dürfen nicht verändert werden:\n\nDie Durchführung des Starts erfolgt mit:\n```bash\nAPP_MODE=test ./bin/start --dry-run\n```\nDie Speicherung des Werts erfolgt in `/etc/app/config.yml` unter `CACHE_TTL`.",
+      "files": [],
+      "invariants": [
+        "Codeblock bytegleich inklusive Sprache bash",
+        "Pfad /etc/app/config.yml und CACHE_TTL bytegleich",
+        "Startbefehl bleibt unverändert"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Code, Pfad oder Bezeichner ändern",
+        "Unbekannte Bedeutung oder Sicherheit des Befehls behaupten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "protected_content",
+        "markdown"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 15,
+      "eval_name": "incident-praeteritum",
+      "task_type": "rewrite",
+      "prompt": "Lektoriere diesen kurzen Incident-Text. Unser Hausstil verwendet Präteritum und Wir-Form; erhalte beides. Gib nur den Text aus: Um 09:10 Uhr fiel der Dienst aus. Wir starteten ihn um 09:12 Uhr neu.",
+      "files": [],
+      "invariants": [
+        "09:10 Ausfall; 09:12 Neustart",
+        "Wir als Akteur",
+        "Hausstil Präteritum"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Zeitpunkte oder Akteur verändern",
+        "In Perfekt umformen, obwohl Präteritum verlangt ist"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "house_style",
+        "tense",
+        "no_op"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 16,
+      "eval_name": "adr-wir-form",
+      "task_type": "rewrite",
+      "prompt": "Unser ADR verwendet bewusst die Wir-Form. Vereinfache nur den Nominalstil und gib den Text aus: Wir haben die Entscheidung getroffen, PostgreSQL für die Speicherung der Bestellungen zu verwenden.",
+      "files": [],
+      "invariants": [
+        "Wir entscheiden",
+        "PostgreSQL speichert Bestellungen",
+        "Entscheidung abgeschlossen"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Wir-Form beseitigen",
+        "Anderes Datenbanksystem oder weitere Datenkategorien hinzufügen",
+        "Aus Entscheidung nur einen Vorschlag machen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "house_style",
+        "voice"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 17,
+      "eval_name": "terminologie-fachteam",
+      "task_type": "create",
+      "prompt": "Schreibe einen Satz für unser Entwicklungsteam. Das Glossar nennt den Vorgang Deployment. Gesicherter Inhalt: Die neue Version wird am Donnerstag um 22 Uhr auf dem Produktivsystem eingespielt.",
+      "files": [],
+      "invariants": [
+        "Neue Version; Donnerstag 22 Uhr; Produktivsystem",
+        "Glossarbegriff Deployment verwenden"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Termin verändern",
+        "Unterbrechungsfreiheit oder Ausfall behaupten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "audience_pair",
+        "terminology"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 18,
+      "eval_name": "terminologie-kundschaft",
+      "task_type": "create",
+      "prompt": "Schreibe einen Satz für nichttechnische Kundschaft. Verwende dafür unseren Begriff Bereitstellung der neuen Version und vermeide Deployment. Gesicherter Inhalt: Die neue Version wird am Donnerstag um 22 Uhr auf dem Produktivsystem eingespielt.",
+      "files": [],
+      "invariants": [
+        "Neue Version; Donnerstag 22 Uhr; Produktivsystem",
+        "Bereitstellung der neuen Version statt Deployment"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Termin verändern",
+        "Unterbrechungsfreiheit oder Ausfall behaupten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "audience_pair",
+        "terminology"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 19,
+      "eval_name": "genderkonvention-erhalten",
+      "task_type": "rewrite",
+      "prompt": "Verbessere nur, falls nötig. Unser Hausstil verwendet die Wir-Form und den Gender-Doppelpunkt. Gib nur den Satz aus: Wir informieren die Entwickler:innen vor dem Rollout.",
+      "files": [],
+      "invariants": [
+        "Wir informieren",
+        "Entwickler:innen vor dem Rollout",
+        "Doppelpunkt als vorgegebene Konvention"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Hausstil durch generisches Maskulinum oder neutrale Form ersetzen",
+        "Zeitpunkt oder Akteur verändern"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "house_style",
+        "gender",
+        "no_op"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 20,
+      "eval_name": "genderkonvention-autorisiert",
+      "task_type": "rewrite",
+      "prompt": "Formuliere diesen Satz mit einer neutralen Gruppenbezeichnung statt Gender-Doppelpunkt. Wir-Form und Inhalt sollen erhalten bleiben. Gemeint ist das gesamte Entwicklungsteam: Wir informieren die Entwickler:innen vor dem Rollout.",
+      "files": [],
+      "invariants": [
+        "Wir informieren vor dem Rollout",
+        "Gemeint ist das gesamte Entwicklungsteam"
+      ],
+      "authorized_changes": [
+        "Entwickler:innen durch neutrale Bezeichnung für das gesamte Entwicklungsteam ersetzen"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "Wir-Form entfernen",
+        "Andere Personen oder Zeitpunkt behaupten",
+        "Doppelpunkt entgegen Auftrag beibehalten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "authorized_change",
+        "gender"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 21,
+      "eval_name": "schweizer-orthografie",
+      "task_type": "proofread",
+      "prompt": "Prüfe nur Rechtschreibung und Grammatik für de-CH. Verändere korrekte Sätze nicht und gib nur den Text aus: Schliesse das Fenster, bevor du die Anwendung startest.",
+      "files": [],
+      "invariants": [
+        "Schweizer Orthografie ohne ß",
+        "Fenster vor Anwendungsstart schliessen"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Schliesse in Schließe umwandeln",
+        "Reihenfolge verändern"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "locale",
+        "no_op"
+      ],
+      "output_contract": "Exakt: Schliesse das Fenster, bevor du die Anwendung startest."
+    },
+    {
+      "id": 22,
+      "eval_name": "commit-projektkonvention",
+      "task_type": "create",
+      "prompt": "Schreibe genau eine deutsche Commit-Zeile. Unsere Konvention verwendet fix: und danach eine Beschreibung im Präsens, keinen Imperativ. Gesicherte Änderung: Der HTTP-Client verwendet jetzt einen Timeout von 30 s statt 5 s.",
+      "files": [],
+      "invariants": [
+        "fix:",
+        "HTTP-Client; jetzt 30 s statt 5 s",
+        "Präsens laut Projektkonvention"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Anderen Timeout oder andere Komponente behaupten",
+        "Imperativ entgegen Konvention",
+        "Weitere Änderungen ergänzen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "house_style",
+        "commit"
+      ],
+      "output_contract": "Genau eine Commit-Zeile; keine Erklärung."
+    },
+    {
+      "id": 23,
+      "eval_name": "regelerklaerung-auf-wunsch",
+      "task_type": "explain",
+      "prompt": "Stilvorgabe: neutral und prägnant. Formuliere klarer und erkläre danach knapp die wichtigste Änderung. Nenne eine passende Regelnummer aus dem Guide, falls dir der Guide vorliegt; ohne Guide ist keine Regelnummer nötig: Die Durchführung der Überprüfung erfolgt durch das Betriebsteam.",
+      "files": [],
+      "invariants": [
+        "Betriebsteam prüft",
+        "Erklärung gewünscht"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Anderen Akteur hinzufügen",
+        "Betriebsteam als Entwicklerteam umdeuten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "mode",
+        "explanation",
+        "nominal_style"
+      ],
+      "output_contract": "Verbesserter Satz und knappe Erklärung; vorhandene Regelnummer muss zur Erklärung passen. Regelnummern bringen keinen Qualitätsbonus."
+    },
+    {
+      "id": 24,
+      "eval_name": "geschuetzte-zitate-und-negation",
+      "task_type": "rewrite",
+      "prompt": "Stilvorgabe: neutral und prägnant. Vereinfache nur die deutschen Rahmensätze. Erhalte das englische und das de-CH-Zitat exakt einschließlich Schreibweise und Interpunktion; der Codewert darf ebenfalls nicht verändert werden. Bewahre die Aussage zur Erreichbarkeit:\n\nDie Anzeige der folgenden Fehlermeldung erfolgt im Terminal: \"Connection refused: retry later.\" Das wörtliche de-CH-Protokoll lautet: «Wir haben Massnahmen beschlossen.» Der unveränderliche Codewert lautet `99.9%`. Der Dienst ist nicht immer erreichbar.",
+      "files": [],
+      "invariants": [
+        "Zitat exakt: \"Connection refused: retry later.\"",
+        "Zitat exakt: «Wir haben Massnahmen beschlossen.»",
+        "Codewert exakt: `99.9%`",
+        "Anzeige im Terminal",
+        "Dienst nicht immer erreichbar; keine Häufigkeitsangabe für Nichterreichbarkeit"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Zitat oder Codewert normalisieren, übersetzen oder ändern",
+        "Ursache der Verbindungsablehnung erfinden",
+        "Nicht immer erreichbar zu nie oder selten erreichbar umdeuten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "protected_content",
+        "mixed_language",
+        "locale",
+        "negation"
+      ],
+      "output_contract": "Auftrag erfüllen; keine ungefragten Regelkommentare."
+    },
+    {
+      "id": 25,
+      "eval_name": "cli-entwurf-autorisiert",
+      "task_type": "design",
+      "prompt": "Entwirf eine neue CLI-Schnittstelle für ein noch nicht gebautes Rust-Tool namens rathole-manager. Es soll rathole-Tunnel starten, stoppen und auflisten. Schlage konkrete Befehle und sinnvolle Flags mit Beispielaufrufen vor. Die Syntax darfst du neu festlegen. Kennzeichne das Ganze als Entwurf; behaupte keine vorhandene Implementierung oder ausgeführte Tests.",
+      "files": [],
+      "invariants": [
+        "Das Tool ist noch nicht gebaut",
+        "Name rathole-manager; Rust; rathole-Tunnel",
+        "Gewünschte Funktionen: starten, stoppen, auflisten"
+      ],
+      "authorized_changes": [
+        "Neue Befehlsnamen, Flags und CLI-Syntax als Vorschlag entwerfen"
+      ],
+      "ambiguities": [
+        "Die technische Implementierung und unterstützte Plattformen sind nicht festgelegt."
+      ],
+      "hard_failures": [
+        "Befehle als bereits implementiert, verifiziert oder getestet darstellen",
+        "Die ausdrücklich erlaubte Entwurfsarbeit wegen fehlender vorhandener CLI-Syntax verweigern",
+        "Unterstützte Plattformen oder Installationswege als bestehende Fakten behaupten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "authorized_change",
+        "design",
+        "missing_context"
+      ],
+      "output_contract": "Kurzer CLI-Entwurf mit konkreten Beispielaufrufen. Ein eindeutiger übergreifender Entwurfsrahmen reicht; keine Fiktiv-Markierung an jedem Befehl nötig."
+    },
+    {
+      "id": 26,
+      "eval_name": "natuerlich-ohne-bedeutungsinszenierung",
+      "task_type": "rewrite",
+      "prompt": "Formuliere diesen kurzen Dokumentationssatz natürlich und sachlich. Streiche Selbstdarstellung und unbelegte Wertungen; gib nur den neuen Text aus: Es ist wichtig zu betonen, dass unser wahrhaft beeindruckendes Tool eine zentrale Rolle bei der Verarbeitung spielt: Es liest YAML-Dateien und prüft Pflichtfelder.",
+      "files": [],
+      "invariants": [
+        "Tool liest YAML-Dateien und prüft Pflichtfelder",
+        "Sachlicher Dokumentationston"
+      ],
+      "authorized_changes": [
+        "Unbelegte Wertungen und Ankündigungen streichen"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "Neue Funktionen, Messwerte oder Zusagen erfinden",
+        "Eine der beiden Funktionen weglassen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "natural_style",
+        "rhetoric"
+      ],
+      "output_contract": "Nur die beauftragte Fassung; keine Analyse oder Regelkommentare."
+    },
+    {
+      "id": 27,
+      "eval_name": "persoenliche-stimme-und-fachbegriffe",
+      "task_type": "rewrite",
+      "prompt": "Glätte diese Teamnachricht nur, falls nötig. Erhalte den lockeren Ton und den Fachbegriff Queue. Gib nur die Nachricht aus: Ich habe die Queue geprüft. Sieht soweit gut aus. Vielleicht hängt es am Worker; bestätigt ist das noch nicht.",
+      "files": [],
+      "invariants": [
+        "Ich habe die Queue geprüft",
+        "Unsicherheit über den Worker bleibt erhalten",
+        "Lockerer Ton und Queue als Fachbegriff"
+      ],
+      "authorized_changes": [],
+      "ambiguities": [],
+      "hard_failures": [
+        "Worker als bestätigte Ursache darstellen",
+        "Persönliche Erfahrungen oder Prüfungsergebnisse ergänzen",
+        "Queue durch eine bedeutungsverändernde Umschreibung ersetzen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "natural_style",
+        "voice",
+        "terminology"
+      ],
+      "output_contract": "Nur die beauftragte Fassung; keine Analyse oder Regelkommentare."
+    },
+    {
+      "id": 28,
+      "eval_name": "nummerierte-anleitung-trotz-natuerlichem-stil",
+      "task_type": "rewrite",
+      "prompt": "Schreibe diese Anleitung natürlicher. Behalte genau zwei nummerierte Schritte und ihre Reihenfolge. Gib nur die Anleitung aus:\n1. Zunächst ist es von besonderer Bedeutung, dass du die Konfiguration prüfst.\n2. Anschließend erfolgt durch dich der Start des Dienstes.",
+      "files": [],
+      "invariants": [
+        "Schritt 1: Konfiguration prüfen",
+        "Schritt 2: Dienst starten",
+        "Genau zwei nummerierte Schritte in dieser Reihenfolge"
+      ],
+      "authorized_changes": [
+        "Unnötige Bedeutungssprache und Nominalstil auflösen"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "Reihenfolge verändern",
+        "Nummerierung entfernen",
+        "Unbekannte Befehle oder Voraussetzungen ergänzen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "natural_style",
+        "structure",
+        "nominal_style"
+      ],
+      "output_contract": "Nur die beauftragte Fassung; keine Analyse oder Regelkommentare."
+    },
+    {
+      "id": 29,
+      "eval_name": "zielmedium-ui-klartext",
+      "task_type": "rewrite",
+      "prompt": "Formuliere diesen Tooltip für ein Klartextfeld in einer Oberfläche. Maximal 80 Zeichen. Erhalte die sichtbare UI-Bezeichnung \"Erneut versuchen\" exakt. Gib nur den Tooltip aus: **Hinweis:** Durch die Auswahl von \"Erneut versuchen\" erfolgt ein weiterer Verbindungsversuch.",
+      "files": [],
+      "invariants": [
+        "Erneut versuchen bleibt exakte UI-Bezeichnung",
+        "Auswahl löst einen weiteren Verbindungsversuch aus",
+        "Klartext mit höchstens 80 Zeichen"
+      ],
+      "authorized_changes": [
+        "Markdown und umständlichen Nominalstil entfernen"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "UI-Bezeichnung verändern",
+        "Neue Diagnose oder Erfolgsgarantie ergänzen",
+        "Ungefragte Erklärung ausgeben"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "natural_style",
+        "medium",
+        "ui"
+      ],
+      "output_contract": "Nur die beauftragte Fassung; keine Analyse oder Regelkommentare."
+    },
+    {
+      "id": 30,
+      "eval_name": "unbelegte-autoritaet-nicht-erfinden",
+      "task_type": "rewrite",
+      "prompt": "Bereinige diesen Produkttext. Streiche die unbelegte Aussage über Studien vollständig; erfinde keinen Beleg. Behalte nur die dokumentierte Funktion. Gib nur den Text aus: Studien zeigen eindeutig, dass unser Tool allen Alternativen überlegen ist. Das Tool prüft YAML-Dateien auf fehlende Pflichtfelder.",
+      "files": [],
+      "invariants": [
+        "Tool prüft YAML-Dateien auf fehlende Pflichtfelder"
+      ],
+      "authorized_changes": [
+        "Unbelegte Studien- und Überlegenheitsbehauptung vollständig streichen"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "Quellen, Zahlen oder Autorennamen erfinden",
+        "Überlegenheitsbehauptung erhalten",
+        "Dokumentierte Funktion verändern"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "natural_style",
+        "sources"
+      ],
+      "output_contract": "Nur die beauftragte Fassung; keine Analyse oder Regelkommentare."
+    },
+    {
+      "id": 31,
+      "eval_name": "chat-direkte-fachantwort",
+      "task_type": "answer",
+      "prompt": "Wie viele Bytes sind ein Kibibyte? Antworte kurz auf Deutsch.",
+      "output_contract": "Die gesuchte Zahl mit Einheit direkt nennen. Keine Stilfrage und kein angehängter Arbeitsplan.",
+      "invariants": [
+        "1 KiB entspricht 1024 Bytes"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Kibibyte mit 1000 Bytes gleichsetzen",
+        "Eine Rückfrage zur Stilübernahme statt der Antwort stellen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "chat",
+        "economy",
+        "direct_answer"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 32,
+      "eval_name": "status-relevantes-auswaehlen",
+      "task_type": "create",
+      "prompt": "Erstelle aus diesen Notizen einen knappen Betriebsstatus für das Bereitschaftsteam. Das Team braucht den aktuellen Stand, den nächsten Termin und offene Ursachen. Interne Besprechungshistorie darf entfallen. Notizen: Der Rollout wurde verschoben. Neuer Termin: Donnerstag, 22 Uhr. Ein Konfigurationsfehler wird vermutet, ist aber noch nicht bestätigt. Der Prozess wurde letztes Jahr in drei Workshops besprochen. Die alte Vorlage hatte sechs Abschnitte. Weitere Fakten liegen nicht vor.",
+      "output_contract": "Kurzer verwendbarer Status, dessen Inhalt auf den genannten Informationsbedarf ausgerichtet ist.",
+      "invariants": [
+        "Rollout verschoben",
+        "Neuer Termin Donnerstag, 22 Uhr",
+        "Konfigurationsfehler ist unbestätigte Vermutung"
+      ],
+      "authorized_changes": [
+        "Besprechungshistorie und alte Vorlagengliederung auslassen",
+        "Informationen neu ordnen"
+      ],
+      "hard_failures": [
+        "Neuen Termin oder bestätigte Ursache behaupten",
+        "Unsicherheit beim Kürzen verlieren",
+        "Nicht bekannte Umsetzung oder Prüfung behaupten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "selection",
+        "uncertainty",
+        "delivery"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 33,
+      "eval_name": "stilfrage-zustimmung-gilt-weiter",
+      "task_type": "conversation",
+      "prompt": "Überarbeite diese Teamnachricht. Die Übergabe ist in zwei Minuten, die Teamleitung wartet auf eine verwendbare Fassung und der fachliche Stand wurde bereits abgestimmt:\n\nIch hab die Queue geprüft. Sieht soweit gut aus. Vielleicht hängt es am Worker; bestätigt ist das noch nicht.",
+      "output_contract": "Runde 1: eine knappe Frage zur Übernahme des vorhandenen Tons. Nach Zustimmung die Nachrichten bearbeiten; innerhalb dieser Unterhaltung nicht erneut danach fragen.",
+      "invariants": [
+        "Nach Zustimmung bleibt der lockere Ton in beiden Nachrichten zulässig",
+        "Erste Nachricht: Ich prüfte die Queue; Worker nur unbestätigte Vermutung",
+        "Zweite Nachricht: Ich startete die Pipeline neu; sie läuft wieder; Queue bislang ungeprüft"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Autorenstil vor Zustimmung automatisch übernehmen",
+        "Erneut dieselbe Stilfrage nach Zustimmung stellen",
+        "Worker als bestätigte Ursache darstellen",
+        "Ungeprüfte Queue als geprüft ausgeben"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "style_consent",
+        "multi_turn",
+        "process",
+        "time_pressure"
+      ],
+      "ambiguities": [],
+      "files": [],
+      "follow_up_turns": [
         {
-          "text": "Lektüremodus greift — Regelreferenzen [R...] vorhanden"
+          "prompt": "Ja, behalte den lockeren Ton. Gib jetzt nur die überarbeitete Nachricht aus.",
+          "output_contract": "Nur die erste Nachricht; lockerer Ton vereinbart, Unsicherheit und Queue erhalten."
         },
         {
-          "text": "Nominalstil-Problem identifiziert und erklärt"
-        },
-        {
-          "text": "Mehrere Varianten angeboten (kontextabhängig)"
-        },
-        {
-          "text": "Baseline bietet nur eine Variante ohne Begründung"
+          "prompt": "Jetzt diese Nachricht: Ich hab die Pipeline neu gestartet. Läuft wieder. Die Queue hab ich noch nicht geprüft.",
+          "output_contract": "Direkt die zweite Nachricht im vereinbarten Ton; keine erneute Stilfrage und keine Änderungsanalyse."
         }
       ]
     },
     {
-      "id": 6,
-      "eval_name": "langer-text-subagent-dispatch",
-      "prompt": "Lektoriere dieses Dokument: [Monitoring-Stack-Architektur, 529 Wörter, schwerer Nominalstil]",
-      "expected_output": "Subagent-Hinweis ausgelöst. Top-Problem priorisiert. Muster-Tabelle. Gesamtbilanz.",
+      "id": 34,
+      "eval_name": "stilfrage-abgelehnt-neutraler-standard",
+      "task_type": "conversation",
+      "prompt": "Überarbeite diese Teamnachricht: Mega, ich hab den Import gestartet! Vielleicht kommt er heute noch durch, sicher ist das nicht.",
+      "output_contract": "Runde 1: knapp nach Stilübernahme fragen. Nach Ablehnung neutral formulieren und die Entscheidung weiter beachten.",
+      "invariants": [
+        "Ich startete den Import",
+        "Fertigstellung heute nur möglich, nicht zugesichert",
+        "Nach Ablehnung gilt neutraler Ton auch für die folgende Nachricht",
+        "Zweite Nachricht: Ich prüfte den Export; es fehlen zwei Dateien"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Begeisterten Autorenstil nach Ablehnung weiter übernehmen",
+        "Erneut nach der entschiedenen Stilübernahme fragen",
+        "Fertigstellung versprechen",
+        "Fehlende Dateien oder Ich als Akteur verlieren"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "style_consent",
+        "multi_turn",
+        "process"
+      ],
+      "ambiguities": [],
       "files": [],
-      "assertions": [
+      "follow_up_turns": [
         {
-          "text": "Subagent-Hinweis bei >500 Wörtern ausgelöst"
+          "prompt": "Nein. Schreibe neutral und prägnant. Gib jetzt nur die Nachricht aus.",
+          "output_contract": "Nur die neutral formulierte erste Nachricht mit erhaltener Unsicherheit."
         },
         {
-          "text": "Top-Problem (Nominalstil) priorisiert und quantifiziert"
-        },
-        {
-          "text": "Muster-Tabelle statt Einzelreparaturen"
-        },
-        {
-          "text": "Gesamtbilanz mit Vorher/Nachher-Metriken"
-        },
-        {
-          "text": "Baseline kein Subagent-Hinweis, kein systematisches Lektorat"
+          "prompt": "Jetzt diese Nachricht: Hammer! Ich hab den Export geprüft. Zwei Dateien fehlen leider noch.",
+          "output_contract": "Nur die zweite Nachricht in neutralem Ton; sachlich relevantes Ich und zwei fehlende Dateien erhalten."
         }
+      ]
+    },
+    {
+      "id": 35,
+      "eval_name": "nur-text-vor-stilfrage",
+      "task_type": "rewrite",
+      "prompt": "Überarbeite die folgende Nachricht. Gib genau einen fertigen Satz aus, ohne Rückfragen: Mega! Ich hab die Queue geprüft und dabei zwei fehlerhafte Einträge gefunden!",
+      "output_contract": "Genau ein neutraler, prägnanter Satz; keine Stilfrage, kein Kommentar und keine Selbstbewertung.",
+      "invariants": [
+        "Ich prüfte die Queue und fand zwei fehlerhafte Einträge",
+        "Queue bleibt Fachbegriff"
+      ],
+      "authorized_changes": [
+        "Begeisterungsformeln und Umgangssprache neutral formulieren"
+      ],
+      "hard_failures": [
+        "Ich oder Zahl zwei verlieren",
+        "Weitere Funde oder Ursachen ergänzen",
+        "Rückfrage oder Prüfliste statt fertigem Satz liefern"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "style_default",
+        "output_format",
+        "protected_content"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 36,
+      "eval_name": "anleitung-bedingungen-pflichtschritte-gleichzeitigkeit",
+      "task_type": "rewrite",
+      "prompt": "Formuliere daraus eine neutrale, ausführbare Schrittfolge. Gib nur die Anleitung aus. Alle Angaben beschreiben eine Beispieloberfläche. Vorbereitung: Die Datei muss gespeichert sein. Bedienung: Halte die Taste „Alt“ gedrückt und klicke währenddessen auf „Vorschau“. Danach darfst du „Alt“ loslassen. Hinweis: Vor dem Klick muss der Bearbeitungsmodus aktiv sein.",
+      "output_contract": "Voraussetzungen vor dem Klick sichtbar machen; gleichzeitig nötige Handlungen verbunden darstellen.",
+      "invariants": [
+        "Datei vor der Bedienung speichern",
+        "Bearbeitungsmodus vor dem Klick aktiv",
+        "Alt während des Klicks auf Vorschau gedrückt halten",
+        "Alt darf nach dem Klick losgelassen werden",
+        "UI-Bezeichnungen Alt und Vorschau erhalten"
+      ],
+      "authorized_changes": [
+        "Hinweis als Voraussetzung in die Schrittfolge integrieren",
+        "Schritte neu ordnen"
+      ],
+      "hard_failures": [
+        "Alt vor dem Klick loslassen",
+        "Vorbereitung oder Bearbeitungsmodus auslassen",
+        "Gleichzeitigkeit in bloße Abfolge ändern",
+        "Pflichtschritt nur als beiläufigen Hinweis belassen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "procedure",
+        "conditions",
+        "simultaneity"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 37,
+      "eval_name": "vergleich-entscheidung-auffindbar",
+      "task_type": "answer",
+      "prompt": "Vergleiche diese zwei fiktiven Tarife knapp und sage, welcher meinen Bedarf deckt. Tarif A: 5 GB Speicher, 4 Euro pro Monat. Tarif B: 10 GB Speicher, 7 Euro pro Monat. Ich brauche 6 GB. Weitere Kriterien spielen keine Rolle.",
+      "output_contract": "Passenden Tarif und wesentlichen Vergleich leicht auffindbar machen; Tabelle oder klare Prosa sind zulässig.",
+      "invariants": [
+        "A: 5 GB, 4 Euro monatlich",
+        "B: 10 GB, 7 Euro monatlich",
+        "Bedarf 6 GB; nur B deckt ihn"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "A als ausreichend empfehlen",
+        "Werte verändern",
+        "Weitere Tarifmerkmale oder Angebote behaupten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "comparison",
+        "orientation",
+        "delivery"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 38,
+      "eval_name": "erklaerung-am-benoetigten-ort",
+      "task_type": "create",
+      "prompt": "Schreibe aus diesen Angaben eine kurze Konfigurationsanleitung für Neueinsteiger in unsere Beispielanwendung. Alle relevanten Angaben sind bekannt: In config.ini werden die Schlüssel CACHE_TTL und MAX_WORKERS gesetzt. CACHE_TTL=60 bedeutet Zwischenspeichern für 60 Sekunden. MAX_WORKERS=4 bedeutet höchstens vier parallele Worker. Wähle den Aufbau so, dass Leser Wert und Bedeutung direkt zusammenfinden. Weitere Schritte sind nicht erforderlich.",
+      "output_contract": "Konfigurationswert und jeweilige Bedeutung am passenden Ort zusammenstellen; keine zusätzliche Installation erklären.",
+      "invariants": [
+        "config.ini",
+        "CACHE_TTL=60 bedeutet 60 Sekunden",
+        "MAX_WORKERS=4 bedeutet höchstens vier parallele Worker"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Schlüssel, Werte oder Einheiten verändern",
+        "Bedeutungen vertauschen",
+        "Unbekannte Start- oder Installationsbefehle hinzufügen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "context_placement",
+        "novice",
+        "protected_content"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 39,
+      "eval_name": "lernen-einsteiger-durchgearbeitetes-beispiel",
+      "task_type": "explain",
+      "prompt": "Ich lerne nebenläufige Programmierung. Wie können zwei gleichzeitige Erhöhungen eines Zählers eine Änderung verlieren? Zeig mir das an einem kleinen Zahlenbeispiel und erkläre den entscheidenden Zusammenhang.",
+      "output_contract": "Ein nachvollziehbares Beispiel mit gemeinsamem Ausgangswert, zwei Lesevorgängen und überschreibenden Schreibvorgängen. Keine ungefragte Prüfung des Lernenden.",
+      "invariants": [
+        "Lesen, Berechnen und Schreiben sind im Beispiel getrennte Schritte",
+        "Beide lesen denselben alten Wert und schreiben denselben erhöhten Wert",
+        "Eine Erhöhung geht gegenüber der erwarteten Gesamterhöhung verloren"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Behaupten, zwei korrekt atomare Erhöhungen müssten eine Änderung verlieren",
+        "Fehler im Zahlenbeispiel",
+        "Nur ein Schlagwort ohne Erklärung liefern",
+        "Erklärung durch ungefragtes Quiz ersetzen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "learning",
+        "novice",
+        "worked_example"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 40,
+      "eval_name": "lernen-fachkundig-passende-tiefe",
+      "task_type": "explain",
+      "prompt": "Ich arbeite täglich mit HTTP-Caching; HTTP, Header und Statuscodes sind mir bekannt. Erkläre kurz, wie ETag und If-None-Match bei einem bedingten GET zusammenspielen und wann 304 statt 200 zurückkommt.",
+      "output_contract": "Den erfragten Zusammenhang erklären. Fachbegriffe sind passend; eine grundlegende HTTP-Einführung ist entbehrlich.",
+      "invariants": [
+        "Server liefert einen ETag als Validator",
+        "Client sendet den Validator mit If-None-Match",
+        "Bei passendem Validator im bedingten GET ist 304 ohne Repräsentationsinhalt möglich",
+        "Bei geändertem Inhalt wird die neue Repräsentation mit 200 geliefert"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "304 mit einem regulären neuen Antwortinhalt gleichsetzen",
+        "Client als Erzeuger des ursprünglichen Server-ETags darstellen",
+        "Nur Statuscodes nennen, ohne den erfragten Zusammenhang zu erklären"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "learning",
+        "expert",
+        "audience"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 41,
+      "eval_name": "lernen-eigenen-loesungsversuch-unterstuetzen",
+      "task_type": "explain",
+      "prompt": "Ich übe Python. Mein Versuch sorted(set(werte)) entfernt doppelte Einträge, verändert aber die ursprüngliche Reihenfolge. Gib mir nur einen kurzen konzeptionellen Hinweis, wie ich die ursprüngliche Reihenfolge behalten könnte. Ich möchte die Lösung selbst schreiben; kein fertiger Code.",
+      "output_contract": "Ein kurzer Ansatzhinweis, der den eigenen Lösungsversuch ermöglicht; kein vollständiger Code und keine Fragenserie.",
+      "invariants": [
+        "Doppelte Einträge sollen entfernt werden",
+        "Reihenfolge des ersten Auftretens soll erhalten bleiben",
+        "Eigene Umsetzung durch den Lernenden gewünscht"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Fertigen Lösungscode statt Hinweis liefern",
+        "Sortieren als Erhalt der ursprünglichen Reihenfolge darstellen",
+        "Reihenfolge oder Duplikatentfernung als Ziel aufgeben"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "learning",
+        "active_attempt",
+        "output_format"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 42,
+      "eval_name": "lernfrage-erklaeren-ohne-quiz",
+      "task_type": "explain",
+      "prompt": "Warum reicht eine vorhandene Sicherungsdatei allein nicht aus, um die Wiederherstellbarkeit von Daten zu belegen? Erkläre mir den entscheidenden Grund knapp.",
+      "output_contract": "Direkte Erklärung des Zusammenhangs; kein ungefragtes Quiz, kein vollständiges Betriebsverfahren.",
+      "invariants": [
+        "Vorhandensein der Datei allein belegt keine erfolgreiche Wiederherstellung",
+        "Ein Wiederherstellungstest prüft die Nutzbarkeit der Sicherung unter den Testbedingungen"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Allein aus dem Vorhandensein Erfolg garantieren",
+        "Einen Test als Garantie für jede zukünftige Situation darstellen",
+        "Erklärung zugunsten einer Gegenfrage verweigern"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "learning",
+        "explanation",
+        "economy"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 43,
+      "eval_name": "wichtige-bedingung-bei-unklarem-kontext",
+      "task_type": "rewrite",
+      "prompt": "Kürze neutral für unser Team: „Vor dem ersten Start die Datenbank initialisieren. Bei späteren Starts die Initialisierung überspringen. Anschließend den Dienst starten.“ Ob unser Team gerade den ersten oder einen späteren Start vorbereitet, ist nicht bekannt. Liefere eine fertige Fassung, wenn das ohne Klärung möglich ist.",
+      "output_contract": "Die Fallunterscheidung bewahren und direkt formulieren. Eine notwendige gezielte Sachfrage ist zulässig; ein unbekannter Betriebszustand darf nicht angenommen werden.",
+      "invariants": [
+        "Initialisierung nur vor dem ersten Start",
+        "Bei späteren Starts keine Initialisierung",
+        "Dienst anschließend starten"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Initialisierung bei jedem Start verlangen",
+        "Initialisierung auch beim ersten Start weglassen",
+        "Ohne Beleg behaupten, welcher Start gerade vorbereitet wird"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "conditions",
+        "missing_context",
+        "selection"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 44,
+      "eval_name": "status-ergebnis-und-offener-schritt",
+      "task_type": "create",
+      "prompt": "Formuliere eine kurze Statusmeldung für unser Entwicklungsteam, einschließlich des nächsten offenen Schritts. Gesicherter Stand: Die Änderung ist implementiert. Die lokalen Tests bestehen. Ein Test in der Staging-Umgebung steht noch aus und muss vor dem Produktionsrelease erfolgen. Weitere Prüfungen oder Ergebnisse sind nicht bekannt.",
+      "output_contract": "Ergebnis und offenen Schritt knapp nennen. Keine erfundene Schrittzahl, keine zusätzliche Zusammenfassung.",
+      "invariants": [
+        "Änderung implementiert",
+        "Lokale Tests bestehen",
+        "Staging-Test noch offen",
+        "Staging-Test vor Produktionsrelease erforderlich"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Staging-Test oder Release als erledigt darstellen",
+        "Schrittzahlen oder Testergebnisse erfinden",
+        "Offene Voraussetzung beim Kürzen weglassen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "status",
+        "next_action",
+        "delivery"
+      ],
+      "ambiguities": [],
+      "files": []
+    },
+    {
+      "id": 45,
+      "eval_name": "grammatik-dass-und-nebensatzkomma",
+      "task_type": "proofread",
+      "prompt": "Korrigiere ausschließlich Rechtschreibung und Grammatik. Gib nur den korrigierten Satz aus: Ich sehe das das Skript fehlschlägt.",
+      "files": [],
+      "invariants": [
+        "Ich als wahrnehmende Person",
+        "Das Skript schlägt fehl"
+      ],
+      "authorized_changes": [
+        "Konjunktion dass und erforderliches Nebensatzkomma korrigieren"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "Grammatikfehler unverändert lassen",
+        "Fehlerursache oder Handlung hinzufügen",
+        "Ungefragte stilistische Neufassung liefern"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "grammar",
+        "positive_correction",
+        "output_format"
+      ],
+      "output_contract": "Der korrigierte Satz lautet: Ich sehe, dass das Skript fehlschlägt. Keine Stilfrage oder Erklärung."
+    },
+    {
+      "id": 46,
+      "eval_name": "komposita-und-einheiten-mit-geschuetzten-literalen",
+      "task_type": "proofread",
+      "prompt": "Korrigiere Rechtschreibung und technische Schreibweisen nur in den deutschen Prosasätzen. Zahlenwerte und ungefähre Angaben müssen erhalten bleiben. Die sichtbare UI-Bezeichnung \"API Dokumentation\" und der CSS-Block bleiben exakt unverändert. Gib nur den bearbeiteten Text aus:\n\nDie API Dokumentation nennt eine Antwortzeit von ungefähr 5ms und eine Verfügbarkeit von 99,9%. Die Schaltfläche heißt \"API Dokumentation\".\n```css\nwidth: 99.9%;\ntransition-duration: 5ms;\n```",
+      "files": [],
+      "invariants": [
+        "Dokumentation nennt ungefähre Antwortzeit von 5 Millisekunden",
+        "Genannte Verfügbarkeit 99,9 Prozent",
+        "UI-Bezeichnung exakt: API Dokumentation",
+        "CSS-Block bytegleich einschließlich Sprache css"
+      ],
+      "authorized_changes": [
+        "Kompositum im Fließtext mit Bindestrich schreiben",
+        "Abstand vor Einheit und Prozentzeichen in der Prosa setzen"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "Zahlenwerte oder Genauigkeit verändern",
+        "Geschützte UI-Bezeichnung oder CSS normalisieren",
+        "Fehlerhafte Komposita- und Einheitenschreibung im Fließtext unverändert lassen"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "orthography",
+        "units",
+        "positive_correction",
+        "protected_content"
+      ],
+      "output_contract": "Im Fließtext API-Dokumentation, 5 ms und 99,9 % verwenden; UI-Bezeichnung und CSS unverändert lassen. Normales oder geschütztes Leerzeichen zwischen Wert und Einheit sind zulässig."
+    },
+    {
+      "id": 47,
+      "eval_name": "fachverb-im-gewuenschten-register",
+      "task_type": "rewrite",
+      "prompt": "Formuliere diesen Satz für eine neutrale API-Dokumentation. Erhalte Funktionsname, Rückgabewert und Bedingung exakt in ihrer Bedeutung. Gib nur den Satz aus: Die Funktion `findEntry` returnt `null`, wenn kein Eintrag existiert.",
+      "files": [],
+      "invariants": [
+        "Funktionsname findEntry und Literal null unverändert",
+        "Rückgabe von null, wenn kein Eintrag existiert"
+      ],
+      "authorized_changes": [
+        "returnt im gewünschten neutralen Register als gibt zurück formulieren"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "Rückgabe in Speichern, Löschen oder Ausnahme umdeuten",
+        "Bedingung verlieren oder umkehren",
+        "Technische Literale ändern",
+        "Ein allgemeines Verbot entlehnter Verben als Sachregel behaupten"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "terminology",
+        "register",
+        "positive_correction",
+        "condition"
+      ],
+      "output_contract": "Bedeutungsgleiche neutrale Formulierung, etwa: Die Funktion `findEntry` gibt `null` zurück, wenn kein Eintrag existiert."
+    },
+    {
+      "id": 48,
+      "eval_name": "relativsatz-identifikation-erhalten",
+      "task_type": "rewrite",
+      "prompt": "Vereinfache den Satz neutral und gib nur die neue Fassung aus. Kontext: Das Projekt umfasst drei Container. Nur einer wurde beim gestrigen Deployment gestartet. Der Satz lautet: Der Container, der beim gestrigen Deployment, das um 22 Uhr begann, gestartet wurde, ist abgestürzt.",
+      "files": [],
+      "invariants": [
+        "Abgestürzt ist der beim gestrigen Deployment gestartete Container",
+        "Das gestrige Deployment begann um 22 Uhr",
+        "Der genaue Startzeitpunkt des Containers ist nicht genannt"
+      ],
+      "authorized_changes": [
+        "Zusatzinformation zum Deployment in einen eigenen Satz auslagern",
+        "Satzbau bedeutungsgleich vereinfachen"
+      ],
+      "ambiguities": [],
+      "hard_failures": [
+        "Anderen oder alle drei Container als abgestürzt darstellen",
+        "Container-Start um 22 Uhr behaupten",
+        "Identifizierenden Bezug zum gestrigen Deployment verlieren"
+      ],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ],
+      "tags": [
+        "syntax",
+        "reference_resolution",
+        "positive_correction",
+        "fidelity"
+      ],
+      "output_contract": "Verschachtelung auflösen und den abgestürzten Container weiterhin über das gestrige Deployment identifizierbar halten. Unterschiedliche bedeutungswahrende Fassungen sind zulässig."
+    },
+    {
+      "id": 49,
+      "eval_name": "ueberfliegen-bedingung-sichtbar",
+      "task_type": "rewrite",
+      "prompt": "Überarbeite diesen Status neutral für eine technische Teamnachricht in Markdown. Erhalte alle Fakten und gestalte ihn so, dass die Aussage auch beim Überfliegen von Überschriften und Hervorhebungen korrekt bleibt: Der Rollout ist für Donnerstag um 22 Uhr geplant. Er darf nur starten, wenn die Wiederherstellungsprüfung erfolgreich ist. Diese Prüfung steht noch aus. Die Vorbereitung ist abgeschlossen. Weitere Informationen liegen nicht vor.",
+      "invariants": [
+        "Rollout geplant für Donnerstag, 22 Uhr",
+        "Start nur nach erfolgreicher Wiederherstellungsprüfung",
+        "Wiederherstellungsprüfung steht noch aus",
+        "Vorbereitung abgeschlossen"
+      ],
+      "authorized_changes": [
+        "Aussagen neu ordnen und sprachlich straffen",
+        "Passende Markdown-Auszeichnung wählen"
+      ],
+      "hard_failures": [
+        "Termin als bedingungslos freigegeben darstellen",
+        "Überschrift oder Hervorhebung behauptet Freigabe trotz ausstehender Prüfung",
+        "Voraussetzung oder ausstehende Prüfung auslassen",
+        "Abgeschlossene Vorbereitung mit erfolgreicher Prüfung gleichsetzen"
+      ],
+      "tags": [
+        "formatting",
+        "orientation",
+        "condition",
+        "uncertainty"
+      ],
+      "output_contract": "Kurzer verwendbarer Status. Geplanter Termin und ausstehende Freigabebedingung stehen beieinander. Überschriften und Hervorhebungen dürfen keine bereits erteilte Freigabe suggerieren. Ein klarer Absatz ohne Hervorhebung ist ebenfalls zulässig.",
+      "files": [],
+      "ambiguities": [],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ]
+    },
+    {
+      "id": 50,
+      "eval_name": "anleitung-bedingung-am-schritt",
+      "task_type": "rewrite",
+      "prompt": "Formuliere diese Anleitung neutral für neue Teammitglieder. Verwende Markdown und erhalte alle Angaben: Erstelle zuerst eine Sicherung. Prüfe danach, ob sich die Sicherung wiederherstellen lässt. Nur bei erfolgreicher Prüfung darfst du das Update starten. Bei fehlgeschlagener Prüfung stoppe den Ablauf und informiere das Betriebsteam. Während des Updates müssen Protokollierung und Überwachung gleichzeitig aktiv bleiben. Nach dem Update prüfst du die Erreichbarkeit. Es sind keine konkreten Befehle oder Prüfwerte bekannt.",
+      "invariants": [
+        "Sicherung erstellen und danach Wiederherstellung prüfen",
+        "Update nur nach erfolgreicher Wiederherstellungsprüfung",
+        "Bei fehlgeschlagener Prüfung Ablauf stoppen und Betriebsteam informieren",
+        "Protokollierung und Überwachung während des Updates gleichzeitig aktiv",
+        "Erreichbarkeit nach dem Update prüfen"
+      ],
+      "authorized_changes": [
+        "Schritte nummerieren und Bedingungen an der betroffenen Handlung platzieren",
+        "Sätze und Absätze für die Anleitung umordnen"
+      ],
+      "hard_failures": [
+        "Update vor erfolgreicher Prüfung erlauben",
+        "Fehlerfall oder abschließende Prüfung auslassen",
+        "Gleichzeitige Protokollierung und Überwachung in aufeinanderfolgende Tätigkeiten umdeuten",
+        "Befehle oder Prüfwerte erfinden"
+      ],
+      "tags": [
+        "formatting",
+        "instructions",
+        "condition",
+        "simultaneity"
+      ],
+      "output_contract": "Ausführbare Schrittfolge mit sichtbarer Voraussetzung vor dem Update und Fehlerzweig am Prüfschritt. Nummerierung bildet die Reihenfolge ab, ohne gleichzeitig nötige Tätigkeiten zu trennen. Keine Pflichtschritte nur in einem entfernten Hinweis.",
+      "files": [],
+      "ambiguities": [],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
+      ]
+    },
+    {
+      "id": 51,
+      "eval_name": "kurzantwort-ohne-formatierungsballast",
+      "task_type": "answer",
+      "prompt": "Antworte neutral in genau einem Satz ohne Markdown: Wann findet der Rollout statt? Bekannt ist nur: Donnerstag um 22 Uhr, sofern die Wiederherstellungsprüfung erfolgreich ist.",
+      "invariants": [
+        "Donnerstag, 22 Uhr",
+        "Rollout nur bei erfolgreicher Wiederherstellungsprüfung"
+      ],
+      "authorized_changes": [],
+      "hard_failures": [
+        "Bedingung weglassen oder bereits erfüllte Prüfung behaupten",
+        "Überschrift, Fettdruck, Liste oder Tabelle trotz Klartextvorgabe verwenden",
+        "Mehrere Sätze oder zusätzlichen Termin erfinden"
+      ],
+      "tags": [
+        "formatting",
+        "output_format",
+        "economy",
+        "condition"
+      ],
+      "output_contract": "Ein direkter Klartextsatz mit Termin und Bedingung; keine zusätzliche Gliederung oder Wiederholung.",
+      "files": [],
+      "ambiguities": [],
+      "criteria": [
+        "fidelity",
+        "task_completion",
+        "clarity",
+        "audience",
+        "economy"
       ]
     }
   ]

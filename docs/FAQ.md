@@ -1,33 +1,61 @@
-# FAQ
+# Klartext: FAQ
 
-## Muss ich den Skill manuell aktivieren?
+## Brauchen aktuelle Modelle dafür einen Skill?
 
-Nein. Claude Code lädt ihn nach der Installation automatisch. Sobald du auf Deutsch schreibst oder um Lektorat bittest, greifen die Regeln.
+Aktuelle Modelle können bereits verständlich schreiben. Klartext macht Sprach-
+und Stilregeln sowie Vorgaben zu Aufbau und Ausgabe als Schreibauftrag
+wiederverwendbar.
 
-## Warum kommentiert der Skill mal, mal nicht?
+## Gilt der Skill auch für gewöhnliche Chat-Antworten?
 
-Der Skill kennt zwei Modi. Im **Schreibmodus** wendet er die Regeln still an. Im **Lektüremodus** kommentiert er jede Änderung mit Regelreferenz. Der Lektüremodus startet, sobald du um Lektorat, Verbesserung oder Kritik bittest.
+**Ja, wenn er aktiv ist und die Antwort deutsche Prosa enthält.** Fachfragen
+beantwortet er direkt, auch ohne Auftrag zur Textbearbeitung.
 
-## Schreibt der Skill auch auf Englisch?
+Ob die verwendete Anwendung den Skill automatisch auswählt, Referenzen nachlädt
+und wie lange der Skill gilt, hängt von der Anwendung und ihrer Version ab.
+Fordere seine Verwendung bei Bedarf ausdrücklich an.
 
-Nein. Er greift nur bei deutschem Text. Für englische Prosa gibt es eigene Stil-Skills.
+## Fragt er immer zuerst nach meinem Stil?
 
-## Wie reiche ich eine neue Regel ein?
+Nur bei der ersten Textbearbeitung, wenn der Stil noch offen ist und Rückfragen
+zulässig sind. Dann stellt er zunächst ausschließlich eine kurze Stilfrage.
+Eine Vorgabe wie „Bewahre meinen lockeren Ton“ oder „Schreibe neutral“ beantwortet
+sie bereits. Die Entscheidung gilt für die Unterhaltung; du kannst sie ändern.
+Fachfragen beantwortet er direkt.
 
-Lies [CONTRIBUTING.md](../CONTRIBUTING.md). Dort steht das Schema einer Regel und der Weg über Issue und Pull Request.
+**Ein festes Ausgabeformat oder „nur den Text“ hat Vorrang.** Ohne vereinbarten
+Stil liefert er dann neutral und prägnant. Bei der nächsten Textbearbeitung, die
+eine Rückfrage zulässt, holt er die offene Stilfrage nach.
 
-## Wie prüfe ich, ob meine Änderung funktioniert?
+## Darf er Inhalte streichen oder den Aufbau ändern?
 
-`evals/evals.json` enthält sechs Testfälle. Installiere den Skill, gib den Prompt eines Testfalls an Claude, und vergleiche das Ergebnis mit den Assertions. Einen automatischen Runner gibt es noch nicht.
+**Der Auftrag bestimmt den Umfang:**
 
-## Die Regeln widersprechen sich — welche gilt?
+- Eine Zusammenfassung oder inhaltliche Straffung darf entbehrliche Details
+  entfernen und den Text neu aufbauen. Wichtige Aussagen, Bedingungen, Mengen,
+  Unsicherheiten und Verbindlichkeit bleiben erhalten.
+- Ein reines Lektorat erhält die fachlichen Inhalte.
+- Eine Rechtschreibprüfung beschränkt sich auf den verlangten Prüfbereich.
 
-Es gilt die Hierarchie **Verständlichkeit > Kürze > Konsistenz > Stil**. Ein längerer, klarer Satz schlägt einen kurzen, unklaren.
+Code, Befehle, Pfade, URLs, Bezeichner, sichtbare UI-Bezeichnungen und wörtliche
+Zitate ändert er nur, wenn du das ausdrücklich beauftragst. Er erfindet keine
+fehlenden Tatsachen; beauftragte Entwürfe dürfen erkennbare Vorschläge enthalten.
+Ein Lektorat ersetzt keine externe Sachprüfung.
 
-## Woher stammen die Regeln?
+## Liefert der Skill immer möglichst wenig Text?
 
-Aus Engel (1911), Schneider, der tekom-Leitlinie und dem Hamburger Verständlichkeitsmodell. Die vollständige Liste mit Quellen steht in `skills/german-style-guide/referenz.md`.
+Er soll so viel Kontext liefern, wie du zum Verstehen, Entscheiden oder Ausführen
+brauchst. **Voraussetzungen und notwendige Schritte bleiben beim Kürzen erhalten.**
+Es gibt keine festen Grenzen für Wörter, Sätze oder Listenpunkte.
 
-## Verändert der Skill meinen Code?
+## Was ändert sich bei Lernfragen?
 
-Nein. Er wirkt nur auf Prosa: Doku, Commit-Messages, Fehlermeldungen, Berichte. Code-Kommentare lässt er bei kurzem Ad-hoc-Schreiben aus.
+Du erhältst eine knappe Erklärung des entscheidenden Zusammenhangs und bei Bedarf
+ein Beispiel. Auf Wunsch unterstützt der Skill eigene Lösungsversuche und
+Verständnisfragen. Er startet kein ungefragtes Quiz.
+
+## Sehe ich die Schlussprüfung und Regelkommentare?
+
+Die Schlussprüfung bleibt intern. Du erhältst die angeforderte Ausgabe.
+**Änderungsbegründungen und Regelreferenzen gibt es auf Nachfrage.** Ein guter Text
+darf unverändert bleiben.

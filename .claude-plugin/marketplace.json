@@ -1,11 +1,11 @@
 {
-  "name": "german-style-guide",
+  "name": "klartext",
   "owner": { "name": "micschr0" },
   "plugins": [
     {
-      "name": "german-style-guide",
+      "name": "klartext",
       "source": "./",
-      "description": "Deutsche Stilregeln für technische Texte — DevOps, Entwickler, Architekten",
+      "description": "Deutsche Texte verständlich schreiben und gestalten. Hilft beim Schreiben, Überarbeiten und Erklären: Informationen nach Leserbedarf ordnen, präzise formulieren und Wichtiges auffindbar machen.",
       "version": "1.1.0",
       "author": { "name": "micschr0" }
     }
