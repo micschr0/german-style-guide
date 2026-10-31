@@ -10,3 +10,7 @@
 
 # Lokale Claude-Code-Konfiguration (projektspezifisch, nicht fuer die Veroeffentlichung)
 .claude/
+
+# Lokale Python-Artefakte der Eval-Prüfung
+__pycache__/
+*.pyc

@@ -1,60 +1,90 @@
-# Mitwirken
+# Zu Klartext beitragen
 
-Danke für dein Interesse. Dieses Repo pflegt einen Claude-Code-Skill mit deutschen Stilregeln. Beiträge verbessern Regeln, Beispiele und Testfälle.
-
-## Was du beitragen kannst
-
-- **Neue Regel** — eine Stilregel, die häufige Fehler in deutschen Tech-Texten behebt.
-- **Korrektur** — ein falsches Beispiel, ein Tippfehler oder eine unklare Formulierung.
-- **Besseres Beispiel** — ein konkreteres Schlecht-→-Gut-Paar für eine bestehende Regel.
-- **Testfall** — ein neuer Eval in `evals/evals.json`, der eine Regel absichert.
+Beiträge verbessern die Sprache und den Aufbau deutscher technischer Texte.
+Hilfreich sind Beispiele für Sprachfehler, umständliche Formulierungen und unklare
+Bezüge sowie Aufgaben, bei denen Information fehlt oder beim Kürzen verloren geht.
 
 ## Aufbau des Repos
 
 | Pfad | Inhalt |
-|------|--------|
-| `skills/german-style-guide/SKILL.md` | Einstieg: Modi, Prinzipien, wann die Referenz laden |
-| `skills/german-style-guide/referenz.md` | Alle Regeln mit Schema und Beispielen |
-| `evals/evals.json` | Testfälle mit Prompt, erwartetem Ergebnis und Assertions |
-| `docs/` | Plan und Design der Veröffentlichung |
+|---|---|
+| `skills/klartext/SKILL.md` | Kurzer Regelkern mit Prioritäten und bedarfsabhängigen Verweisen. |
+| `skills/klartext/gestaltung.md` | Informationsauswahl, Aufbau, Formatierung und Erklärungstiefe. |
+| `skills/klartext/referenz.md` | Themenindex, Geltung und Sprachquellen. |
+| `skills/klartext/satzbau.md` | R1–R20, R71–R74: Kürze, Satzbau, Belege und Perspektive. |
+| `skills/klartext/grammatik.md` | R33–R47, R75–R76: Grammatik, Orthografie und Typografie. |
+| `skills/klartext/terminologie.md` | R28–R32, R61–R70: Begriffe, Anrede und Fachsprache. |
+| `skills/klartext/textformen.md` | R21–R27, R48–R60: Gliederung und technische Textformen. |
+| `evals/evals.json` | Erledigungs-, Lern- und Prozessfälle. |
 
-## Eine Regel hinzufügen
+## Eine Leitlinie ändern
 
-Halte das feste Schema aus `referenz.md` ein:
+Beschreibe den konkreten Leserbedarf und die beabsichtigte Verbesserung.
+Prüfe zuerst, ob eine vorhandene Leitlinie genügt. Führe Dopplungen zusammen.
+Der Kern enthält häufig benötigte Handlungsregeln und direkte Ladeauslöser.
+Stilentscheidung, Inhaltsschutz und Ausgabeauftrag stehen dort einmal.
+Umfangreiche Details gehören in eine optionale Themenreferenz. Die `description` nennt
+Einsatzanlässe und erkennbare Probleme; sie fasst den Ablauf nicht zusammen.
+
+Beachte die Vorgaben zu Bearbeitungsumfang, Inhaltstreue und Stilentscheidung im
+[Regelkern](skills/klartext/SKILL.md). Prüfe Änderungen anhand konkreter
+Anwendungsszenarien mit und ohne die geänderte Vorgabe. Halte die Ausgaben und
+beobachtete Abweichungen fest; das Vorgehen beschreibt die
+[Eval-Anleitung](evals/README.md#anwendung-eines-geänderten-skills-prüfen).
+Eine ergänzende Anleitung zur Skill-Erstellung ist
+[writing-skills](https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md).
+
+## Sprachliche Detailregeln pflegen
+
+Erhalte bestehende IDs als Verweisziele. Neue IDs kommen hinter die bisher höchste
+Nummer; eine Erweiterung muss mit dem Validator abgestimmt werden.
+Das Schema in den Themenreferenzen lautet:
 
 ```markdown
-### R<Nummer>: <Kurzer aktiver Titel>
-Regel: <ein Satz, was zu tun ist>
-Warum: <ein Satz Begründung>
-Wann nicht: <Ausnahme, falls es eine gibt>
-Schlecht → Gut: <konkretes Beispielpaar>
+### R<Nummer>: <Titel>
+**Typ:** Sprachnorm, Fachkonvention oder Stilheuristik.
+**Regel/Warum:** Was gilt unter welchen Bedingungen?
+**Wann nicht:** Welche Ausnahme oder Grenze ist wichtig?
+**Beispiel:** Eine bedeutungswahrende Fassung oder ein zulässiger Gegenfall.
 ```
 
-Trag die Regel in die passende Kategorie ein und ordne sie der Nummernfolge zu. Aktualisiere danach:
+Belege normative Behauptungen mit einer überprüfbaren Quelle. Eine fremde
+Schreibheuristik ist keine allgemeine deutsche Sprachregel.
 
-- die Kategorientabelle in [README.md](README.md),
-- den Einstieg in `SKILL.md`, falls die Regel ein Prinzip betrifft,
-- einen Eval in `evals/evals.json`, der die Regel prüft.
+## Entwicklungsfälle ergänzen
 
-## Stil deiner Beiträge
+Nutze `evals/evals.json`. Gib eine echte Aufgabe, Ausgabeerwartungen, zu erhaltende
+Inhalte, erlaubte Änderungen und konkrete harte Fehler an. Ordne den Fall einer
+Erledigungs-, Lern- oder Prozessgruppe zu. Für Gesprächsabläufe über mehrere
+Runden verwende `follow_up_turns` und den Tag `multi_turn`.
 
-Dieses Repo lebt von klarem Deutsch. Wende die eigenen Regeln auf deinen Beitrag an: kurze Sätze, Aktiv, Verben statt Substantivierungen, konkrete Beispiele. Der Skill selbst hilft dir dabei.
+Prüfe sprachliche Verbesserungen mit echten Korrekturfällen und passenden
+Gegenfällen. Zulässiges Passiv, etablierte Fachbegriffe und geschützte Inhalte
+dürfen unverändert bleiben. Die bloße Zahl der vorgenommenen Änderungen ist kein Ziel.
 
-## Commits
+## Prüfen und einreichen
 
-Nutze Conventional Commits:
+Mit Python 3.9 oder neuer:
 
-- `feat:` — neue Regel oder neues Feature
-- `fix:` — Korrektur einer Regel, eines Beispiels oder eines Tippfehlers
-- `docs:` — Änderung an README, Referenz oder anderer Doku
-- `test:` — Änderung an Evals
+```bash
+python3 evals/validate.py
+python3 -m unittest discover -s evals -p 'test_*.py'
+git diff --check
+```
 
-Halte Commits klein und auf ein Thema beschränkt.
+Die Checks prüfen Struktur, Fallgruppen, Fixtures und Regelverweise; sie führen
+keine Modelle aus. Sie prüfen auch lokale Markdown-Links samt Überschriften,
+Plugin-Pfade und die 20 aufklappbaren Beispiele. Regel-IDs werden über alle
+Skill-Dateien hinweg geprüft, einschließlich Ausnahmen und Beispielschema.
 
-## Pull Request
+Bei Änderungen an der Ladestruktur mit demselben Tokenizer messen und die
+zusätzlichen Dateizugriffe berücksichtigen; siehe
+[Messhinweise](evals/README.md#tokenumfang-und-nachladen-prüfen).
 
-1. Forke das Repo und erstelle einen Branch.
-2. Nimm deine Änderung vor und prüfe sie gegen die Evals (siehe [README.md](README.md), Abschnitt "Lokal prüfen").
-3. Beschreibe im PR, welche Regel du änderst und warum.
+Erstelle einen Branch und beschreibe im Pull Request das konkrete Problem,
+das neue Verhalten und die Prüfung. Nutze Conventional Commits, etwa `feat:`,
+`fix:`, `docs:` oder `test:`. Aktualisiere betroffene Beispiele und Dokumentation.
 
-Bei größeren Vorschlägen öffne zuerst ein Issue, damit wir die Richtung klären, bevor du Arbeit investierst.
+## Entwicklungsnotizen
+
+- [Forschung zu Lesbarkeit und Informationsgestaltung](docs/forschung-lesbarkeit.md): Belege und Grenzen der Gestaltungsregeln.
